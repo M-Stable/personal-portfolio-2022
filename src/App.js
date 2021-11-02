@@ -1,24 +1,15 @@
-import logo from "./logo.svg";
 import "./App.css";
+import Header from "./components/Header";
+import Landing from "./pages/Landing";
+import Projects from "./pages/Projects";
 
 function App() {
   return (
-    <div className="App">
-      <div className="bg-blue-700">hello</div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
+      <Header />
+      {/* <div className="rounded-full h-5 w-5 bg-secondary"></div> */}
+      <Landing />
+      <Projects />
     </div>
   );
 }
