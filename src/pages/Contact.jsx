@@ -6,7 +6,7 @@ const Contact = (props) => {
   return (
     <section
       ref={props.reference}
-      className="asection h-screen bg-tertiary p-20"
+      className="asection h-screen bg-tertiary p-32"
     >
       <div className="grid grid-cols-2">
         <div className="w-min">

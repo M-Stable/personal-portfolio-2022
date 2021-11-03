@@ -8,7 +8,7 @@ import "./landing.css";
 const Landing = () => {
   return (
     <>
-      <div className="asection h-screen bg-gradient-radial from-primary to-primaryGradient flex flex-col pt-64 px-20">
+      <div className="asection h-screen bg-gradient-radial from-primary to-primaryGradient flex flex-col pt-64 px-32">
         {/* <section className="absolute z-10 w-screen h-screen">
           <Canvas camera={{ position: [4, 1, 5], fov: 70 }}>
             <ambientLight intensity={0.5} />
