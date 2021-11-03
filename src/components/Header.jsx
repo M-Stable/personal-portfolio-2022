@@ -39,7 +39,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed w-full mt-10 px-20">
+    <header className="fixed w-full mt-10 px-20 z-10">
       <h1 ref={name} className="float-left font-header text-secondary text-2xl">
         Francis Lee
       </h1>

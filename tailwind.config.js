@@ -7,6 +7,7 @@ module.exports = {
       primaryGradient: "#900F0F",
       secondary: "#F8F2DC",
       tertiary: "#000F08",
+      white: "#FFFFFF",
     },
     extend: {
       backgroundImage: {

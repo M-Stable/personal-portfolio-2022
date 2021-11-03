@@ -4,7 +4,7 @@ import arrowDown from "../assets/arrow-down.svg";
 
 const Landing = () => {
   return (
-    <div className="asection h-screen flex flex-col pt-64 px-20">
+    <div className="asection h-screen bg-gradient-radial from-primary to-primaryGradient flex flex-col pt-64 px-20">
       <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
         <span>Hello,</span> <br />
         <span>My name is </span>

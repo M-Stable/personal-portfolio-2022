@@ -7,6 +7,7 @@ import Landing from "./pages/Landing";
 import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
+import { setUpCursor1, setUpCursor2 } from "./customcursor";
 
 function App() {
   useEffect(() => {
@@ -25,12 +26,16 @@ function App() {
         snap: 1 / (sections.length - 1),
       });
     });
+
+    setUpCursor1(gsap);
+    setUpCursor2(gsap);
   });
 
   return (
     <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
+      <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
+      <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
       <Header />
-      {/* <div className="rounded-full h-5 w-5 bg-secondary"></div> */}
       <Landing />
       <Projects />
       <Experience />
