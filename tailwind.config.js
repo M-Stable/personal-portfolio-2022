@@ -24,7 +24,10 @@ module.exports = {
     },
   },
   variants: {
-    extend: {},
+    extend: {
+      backdropFilter: ["hover"],
+      backdropBrightness: ["hover"],
+    },
   },
   plugins: [],
 };

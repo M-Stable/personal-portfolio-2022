@@ -34,8 +34,8 @@ const ProjectCard = (props) => {
     <div
       className={`card w-full h-1/3 mb-20 bg-project-${image} bg-cover bg-center`}
     >
-      <div className="flex h-full w-full px-10 backdrop-filter backdrop-brightness-50">
-        <div className="self-end w-full mb-14">
+      <div className="flex h-full w-full px-10 opacity-0 transition-all hover:opacity-100 hover:backdrop-filter hover:backdrop-brightness-50">
+        <div className="self-end w-full mb-14 ">
           <h1 className="font-header text-3xl text-white">{title}</h1>
           <hr className="text-primary border-t-4" />
           <span className="text-white text-xl font-body float-right">
