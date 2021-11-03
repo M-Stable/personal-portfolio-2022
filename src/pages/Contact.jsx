@@ -4,7 +4,7 @@ import github from "../assets/github.svg";
 
 const Contact = () => {
   return (
-    <section className="bg-tertiary p-20">
+    <section className="asection h-screen bg-tertiary p-20">
       <div className="grid grid-cols-2">
         <div className="w-min">
           <h1 className="font-header text-secondary text-6xl whitespace-nowrap">
