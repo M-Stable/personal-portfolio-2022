@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./App.css";
@@ -23,7 +23,7 @@ function App() {
         pin: true,
         scrub: 1,
         pinSpacing: false,
-        // snap: 1 / (sections.length - 1),
+        snap: 1 / (sections.length - 1),
       });
     });
 
@@ -32,15 +32,18 @@ function App() {
   });
 
   return (
-    <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
-      <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
-      <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
-      <Header />
-      <Landing />
-      <Projects />
-      <Experience />
-      <Contact />
-    </div>
+    <Suspense fallback={<h1>loading</h1>}>
+      <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
+        <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
+        <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
+        <Header />
+
+        <Landing />
+        <Projects />
+        <Experience />
+        <Contact />
+      </div>
+    </Suspense>
   );
 }
 
