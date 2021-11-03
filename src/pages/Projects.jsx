@@ -1,4 +1,5 @@
 import React from "react";
+import ProjectCard from "../components/ProjectCard";
 
 const Projects = () => {
   return (
@@ -7,12 +8,12 @@ const Projects = () => {
         <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl mb-20">
           <span>Projects</span>
         </h1>
-        <div className="w-full h-1/3 mb-20 bg-tertiary"></div>
-        <div className="w-full h-1/3 mb-20 bg-tertiary"></div>
+        <ProjectCard image={"food"} tite={"What to Eat"} />
+        <ProjectCard image={"budget"} tite={"Go Dutch"} />
       </div>
       <div>
-        <div className="w-full h-1/3 mb-20 bg-tertiary"></div>
-        <div className="w-full h-1/3 mb-20 bg-tertiary"></div>
+        <ProjectCard image={"music"} tite={"Custom Spotify"} />
+        <ProjectCard image={"puzzle"} tite={"AR Puzzle"} />
       </div>
     </div>
   );

@@ -12,6 +12,10 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "project-food": "url(./assets/images/food.jpg)",
+        "project-music": "url(./assets/images/music.jpg)",
+        "project-puzzle": "url(./assets/images/puzzle.jpg)",
+        "project-budget": "url(./assets/images/budget.jpg)",
       },
       fontFamily: {
         header: "Akira",
