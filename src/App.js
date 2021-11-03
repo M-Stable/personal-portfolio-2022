@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from "react";
+import React, { useEffect, Suspense, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./App.css";
@@ -31,17 +31,25 @@ function App() {
     setUpCursor2(gsap);
   });
 
+  const projectRef = useRef();
+  const experienceRef = useRef();
+  const contactRef = useRef();
+
   return (
     <Suspense fallback={<h1>loading</h1>}>
       <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
         <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
         <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
-        <Header />
+        <Header
+          projRef={projectRef}
+          expRef={experienceRef}
+          contactRef={contactRef}
+        />
 
         <Landing />
-        <Projects />
-        <Experience />
-        <Contact />
+        <Projects reference={projectRef} />
+        <Experience reference={experienceRef} />
+        <Contact reference={contactRef} />
       </div>
     </Suspense>
   );

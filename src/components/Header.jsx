@@ -3,7 +3,7 @@ import logo from "../logo.svg";
 import Menu from "./Menu";
 import { gsap } from "gsap";
 
-const Header = () => {
+const Header = ({ ...props }) => {
   const name = useRef();
   const logoRef = useRef();
   const menuRef = useRef();
@@ -49,7 +49,7 @@ const Header = () => {
         className="w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         alt="logo"
       />
-      <Menu reference={menuRef} />
+      <Menu reference={menuRef} {...props} />
     </header>
   );
 };

@@ -1,8 +1,8 @@
 import React from "react";
 
-const Experience = () => {
+const Experience = (props) => {
   return (
-    <div className="asection h-screen bg-secondary">
+    <div ref={props.reference} className="asection h-screen bg-secondary">
       <hr className="text-primary border-t-4 w-full" />
     </div>
   );

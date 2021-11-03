@@ -21,7 +21,16 @@ const Landing = () => {
         <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
           <span>Hello,</span> <br />
           <span>My name is </span>
-          <span className="glitch text-secondary">Francis Lee</span> <br />
+          <span className="glitch text-secondary">
+            <a
+              href="https://www.linkedin.com/in/francis-lee-889377191/"
+              target="_blank"
+              rel="noreferrer"
+            >
+              Francis Lee
+            </a>
+          </span>{" "}
+          <br />
           <span>Nice to meet you</span>
         </h1>
         <section className="w-full">
