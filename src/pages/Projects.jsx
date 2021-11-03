@@ -8,12 +8,28 @@ const Projects = () => {
         <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl mb-20">
           <span>Projects</span>
         </h1>
-        <ProjectCard image={"food"} tite={"What to Eat"} />
-        <ProjectCard image={"budget"} tite={"Go Dutch"} />
+        <ProjectCard
+          image={"food"}
+          title={"What to Eat"}
+          tech={["Firebase", "Vue.js"]}
+        />
+        <ProjectCard
+          image={"budget"}
+          title={"Go Dutch"}
+          tech={["Firebase", "React Native"]}
+        />
       </div>
       <div>
-        <ProjectCard image={"music"} tite={"Custom Spotify"} />
-        <ProjectCard image={"puzzle"} tite={"AR Puzzle"} />
+        <ProjectCard
+          image={"music"}
+          title={"Custom Spotify"}
+          tech={["React", "Styled Components"]}
+        />
+        <ProjectCard
+          image={"puzzle"}
+          title={"AR Puzzle"}
+          tech={["Unity", "C#"]}
+        />
       </div>
     </div>
   );

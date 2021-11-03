@@ -23,7 +23,7 @@ function App() {
         pin: true,
         scrub: 1,
         pinSpacing: false,
-        snap: 1 / (sections.length - 1),
+        // snap: 1 / (sections.length - 1),
       });
     });
 
