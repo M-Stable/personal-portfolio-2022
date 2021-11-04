@@ -21,6 +21,15 @@ module.exports = {
         header: "Akira",
         body: "Alef, sans-serif",
       },
+      flexGrow: {
+        0: 0,
+        1: 1,
+        2: 2,
+      },
+      gridTemplateRows: {
+        // Simple 16 column grid
+        landing: "2fr 1fr 1fr",
+      },
     },
   },
   variants: {

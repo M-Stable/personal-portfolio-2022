@@ -8,7 +8,7 @@ const Model = () => {
 
   const gltf = useLoader(GLTFLoader, "/scene.gltf");
   return (
-    <group position={[3, 2, 0]}>
+    <group position={[0, -2.5, 0]}>
       <mesh ref={modelRef} position={[0, 0, 0]}>
         <primitive object={gltf.scene} dispose={null} />
       </mesh>
