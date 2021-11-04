@@ -4,6 +4,7 @@ import { Canvas } from "@react-three/fiber";
 import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
+import Ticker from "react-ticker";
 
 const Landing = () => {
   useEffect(() => {
@@ -12,7 +13,7 @@ const Landing = () => {
     tl.from(
       ".hidetext",
       {
-        y: "60px",
+        y: "100%",
         opacity: 0,
         duration: 0.8,
         stagger: 0.2,
@@ -22,24 +23,47 @@ const Landing = () => {
   }, []);
 
   return (
-    <>
-      <div className="asection h-screen bg-gradient-radial from-primary to-primaryGradient pt-40 px-32 grid grid-rows-landing gap-8 justify-items-center items-center">
-        <section className="flex-grow-2 relative w-full h-full">
-          <Canvas camera={{ position: [0, 1, 6], fov: 70 }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[0, 5, 4]} intensity={1} />
-            <Suspense fallback={null}>
-              <Model />
-            </Suspense>
-          </Canvas>
+    <section className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient">
+      <div className="absolute h-full w-full z-10">
+        <Canvas camera={{ position: [0, 0, 1], fov: 70 }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[0, 5, 4]} intensity={1} />
+          <Suspense fallback={null}>
+            <Model />
+          </Suspense>
+        </Canvas>
+      </div>
+      <div className="md:pt-40 pb-10 pt-32 w-full h-full grid lg:grid-rows-landing sm:grid-rows-3 gap-8 justify-items-center items-center">
+        <section className="flex-grow-2 w-full opacity-10">
+          <Ticker speed={10}>
+            {() => (
+              <h1 className="font-body text-6xl text-secondary">
+                <span>You are the architect of your own future. </span>
+              </h1>
+            )}
+          </Ticker>
+          <Ticker speed={20}>
+            {() => (
+              <h1 className="font-body text-6xl text-secondary">
+                <span>You are the architect of your own future. </span>
+              </h1>
+            )}
+          </Ticker>
+          <Ticker speed={15}>
+            {() => (
+              <h1 className="font-body text-6xl text-secondary">
+                <span>You are the architect of your own future. </span>
+              </h1>
+            )}
+          </Ticker>
         </section>
 
         <section className="w-full h-full font-header text-center xl:text-6xl lg:text-4xl sm:text-2xl">
-          <h1>
-            <span className="hidetext">Hello,</span>
+          <h1 className="hidetext">
+            <span>Hello,</span>
           </h1>
-          <h1>
-            <span className="hidetext">
+          <h1 className="hidetext">
+            <span>
               My name is{" "}
               <span className=" glitch text-secondary">
                 <a
@@ -52,8 +76,8 @@ const Landing = () => {
               </span>
             </span>
           </h1>
-          <h1>
-            <span className="hidetext">Nice to meet you</span>
+          <h1 className="hidetext">
+            <span>Nice to meet you</span>
           </h1>
         </section>
 
@@ -66,7 +90,7 @@ const Landing = () => {
           </div>
         </section>
       </div>
-    </>
+    </section>
   );
 };
 

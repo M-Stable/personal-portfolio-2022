@@ -39,14 +39,14 @@ const Header = ({ ...props }) => {
   }, []);
 
   return (
-    <header className="fixed w-full mt-10 px-32 z-10">
+    <header className="fixed w-full mt-10 md:px-32 px-10 z-10">
       <h1 ref={name} className="float-left font-header text-secondary text-2xl">
         Francis Lee
       </h1>
       <img
         ref={logoRef}
         src={logo}
-        className="w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
+        className="invisible md:visible w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         alt="logo"
       />
       <Menu reference={menuRef} {...props} />
