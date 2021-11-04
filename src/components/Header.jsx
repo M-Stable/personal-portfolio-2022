@@ -10,11 +10,15 @@ const Header = ({ ...props }) => {
   useEffect(() => {
     const tl = gsap.timeline();
 
-    tl.from(name.current, {
-      y: "-100%",
-      opacity: 0,
-      duration: 0.8,
-    });
+    tl.from(
+      name.current,
+      {
+        y: "-100%",
+        opacity: 0,
+        duration: 0.8,
+      },
+      0.8
+    );
     tl.from(
       logoRef.current,
       {
@@ -39,10 +43,10 @@ const Header = ({ ...props }) => {
   }, []);
 
   return (
-    <header className="fixed w-full mt-10 md:px-32 px-10 z-10">
-      <h1 ref={name} className="float-left font-header text-secondary text-2xl">
+    <header className="fixed w-full mt-10 md:px-32 px-10 z-10 flex justify-between items-center">
+      <span ref={name} className=" font-header text-secondary text-2xl">
         Francis Lee
-      </h1>
+      </span>
       <img
         ref={logoRef}
         src={logo}

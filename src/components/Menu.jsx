@@ -9,7 +9,7 @@ const Menu = (props) => {
   return (
     <ul
       ref={props.reference}
-      className="invisible md:visible flex float-right font-body text-xl text-secondary space-x-10"
+      className="invisible md:visible flex font-body text-xl text-secondary space-x-10"
     >
       <li onClick={() => scrollTo(projRef)}>Projects</li>
       <li onClick={() => scrollTo(expRef)}>Experience</li>
