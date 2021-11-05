@@ -43,7 +43,7 @@ const Header = ({ ...props }) => {
   }, []);
 
   return (
-    <header className="fixed w-full mt-10 md:px-32 px-10 z-10 flex justify-between items-center">
+    <header className="fixed w-full mt-10 md:px-32 px-10 z-20 flex justify-between items-center">
       <span ref={name} className=" font-header text-secondary text-2xl">
         Francis Lee
       </span>
