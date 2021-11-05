@@ -13,19 +13,19 @@ function App() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const sections = gsap.utils.toArray(".asection");
+    // const sections = gsap.utils.toArray(".asection");
 
-    sections.forEach((section) => {
-      ScrollTrigger.create({
-        trigger: section,
-        ease: "none",
-        start: "top top",
-        pin: true,
-        scrub: 1,
-        pinSpacing: false,
-        snap: 1 / (sections.length - 1),
-      });
-    });
+    // sections.forEach((section) => {
+    //   ScrollTrigger.create({
+    //     trigger: section,
+    //     ease: "none",
+    //     start: "top top",
+    //     pin: true,
+    //     scrub: 1,
+    //     pinSpacing: false,
+    //     snap: 1 / (sections.length - 1),
+    //   });
+    // });
 
     setUpCursor1(gsap);
     setUpCursor2(gsap);

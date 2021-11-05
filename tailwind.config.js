@@ -10,6 +10,9 @@ module.exports = {
       white: "#FFFFFF",
     },
     extend: {
+      backgroundSize: {
+        "120%": "120%",
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "project-food": "url(./assets/images/food.jpg)",
@@ -36,6 +39,7 @@ module.exports = {
     extend: {
       backdropFilter: ["hover"],
       backdropBrightness: ["hover"],
+      backgroundSize: ["hover"],
     },
   },
   plugins: [],

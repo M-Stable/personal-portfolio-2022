@@ -5,29 +5,43 @@ import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
 import Ticker from "react-ticker";
+import { motion, useAnimation } from "framer-motion";
 
 const Landing = () => {
   const model = useRef();
 
-  useEffect(() => {
-    const tl = gsap.timeline();
+  const controls = useAnimation();
 
-    tl.from(".hidetext", {
-      y: "100%",
-      opacity: 0,
-      duration: 0.8,
-      stagger: 0.2,
-    });
-    tl.from(
-      model.current,
-      {
-        x: "100%",
-        opacity: 0,
-        duration: 2,
-        stagger: 0.2,
-        ease: "expo",
-      },
-      1.5
+  const variants = {
+    start: { opacity: 0, y: "100%" },
+    slide: { opacity: 1, y: 0 },
+  };
+
+  useEffect(() => {
+    // const tl = gsap.timeline();
+    // tl.from(".hidetext", {
+    //   y: "100%",
+    //   opacity: 0,
+    //   duration: 0.8,
+    //   stagger: 0.2,
+    // });
+    // tl.from(
+    //   model.current,
+    //   {
+    //     x: "100%",
+    //     opacity: 0,
+    //     duration: 2,
+    //     stagger: 0.2,
+    //     ease: "expo",
+    //   },
+    //   1.5
+    // );
+    // Object.assign({ transition: { delay: i * 0.2 } }, variants.slide);
+    controls.start((i) =>
+      Object.assign(
+        { transition: { delay: i * 0.2, type: "easeOut", duration: 0.5 } },
+        variants.slide
+      )
     );
   }, []);
 
@@ -68,10 +82,22 @@ const Landing = () => {
         </section>
 
         <section className="w-full h-full font-header text-center xl:text-6xl lg:text-4xl text-xl">
-          <h1 className="hidetext leading-tight">
+          <motion.h1
+            custom={0}
+            initial="start"
+            variants={variants}
+            animate={controls}
+            className="leading-tight"
+          >
             <span>Hello,</span>
-          </h1>
-          <h1 className="hidetext leading-tight">
+          </motion.h1>
+          <motion.h1
+            custom={1}
+            initial="start"
+            variants={variants}
+            animate={controls}
+            className="leading-tight"
+          >
             <span>
               My name is{" "}
               <span className=" glitch text-secondary">
@@ -84,10 +110,16 @@ const Landing = () => {
                 </a>
               </span>
             </span>
-          </h1>
-          <h1 className="hidetext leading-tight">
+          </motion.h1>
+          <motion.h1
+            custom={2}
+            initial="start"
+            variants={variants}
+            animate={controls}
+            className="leading-tight"
+          >
             <span>Nice to meet you</span>
-          </h1>
+          </motion.h1>
         </section>
 
         <section className=" h-full flex flex-col items-center">
