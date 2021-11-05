@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ProjectCard from "../components/ProjectCard";
+import { projectInfo } from "./projectInfo";
 
 const Projects = (props) => {
   const [expanded, setExpanded] = useState(false);
@@ -10,34 +11,19 @@ const Projects = (props) => {
         <span>Projects</span>
       </h1>
       <div className="flex flex-col h-full justify-between">
-        <ProjectCard
-          image={"food"}
-          title={"What to Eat"}
-          tech={["Firebase", "Vue.js"]}
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
-        <ProjectCard
-          image={"budget"}
-          title={"Go Dutch"}
-          tech={["Firebase", "React Native"]}
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
-        <ProjectCard
-          image={"music"}
-          title={"Custom Spotify"}
-          tech={["React", "Styled Components"]}
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
-        <ProjectCard
-          image={"puzzle"}
-          title={"AR Puzzle"}
-          tech={["Unity", "C#"]}
-          expanded={expanded}
-          setExpanded={setExpanded}
-        />
+        {projectInfo.map((project) => {
+          return (
+            <ProjectCard
+              image={project.image}
+              title={project.title}
+              tech={project.tech}
+              description={project.description}
+              githublink={project.github}
+              expanded={expanded}
+              setExpanded={setExpanded}
+            />
+          );
+        })}
       </div>
     </div>
   );
