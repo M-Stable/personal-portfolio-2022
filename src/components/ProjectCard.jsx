@@ -15,6 +15,17 @@ const ProjectCard = (props) => {
   const infoBack = useRef();
   const infoRef = useRef();
 
+  const scrollTo = (reference) => {
+    // reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    const yOffset = -100;
+    const y =
+      reference.current.getBoundingClientRect().top +
+      window.pageYOffset +
+      yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
+  };
+
   const cardExpand = (tl) => {
     tl.to(
       line.current,
@@ -138,60 +149,59 @@ const ProjectCard = (props) => {
   return (
     <div
       ref={card}
-      className={`card "h-full w-full bg-project-${image} bg-cover bg-center ${
-        expanded && !selected && "invisible"
-      }`}
+      className={`card "h-full w-full shadow-card bg-project-${image} bg-cover bg-center mb-14`}
       onClick={() => {
         setSelected(true);
         setExpanded(true);
+        scrollTo(card);
       }}
     >
-      {(!expanded || selected) && (
-        <div className="h-full w-full backdrop-filter backdrop-brightness-50 grid grid-cols-2 transition-all">
-          <div className="flex flex-col p-10 justify-center w-full mt-auto">
-            <h1 className="font-header text-3xl text-white">{title}</h1>
-            <hr ref={line} className="text-primary border-t-4 w-10" />
-            <span
-              ref={techRef}
-              className="text-white text-xl font-body self-end opacity-0 transform translate-x-full "
-            >
-              {tech.join([" | "])}
-            </span>
-          </div>
-
-          <div className="relative w-full h-full">
-            <div
-              ref={infoBack}
-              className="absolute top-0 right-0 bg-tertiary w-full h-0 opacity-0"
-            />
-            {selected && (
-              <div
-                ref={infoRef}
-                className="absolute top-0 right-0 w-full h-full flex flex-col py-10 px-14 opacity-0"
-              >
-                <p className="flex-grow font-body text-secondary text-xl">
-                  {description}
-                </p>
-                <div className="flex justify-between mt-10">
-                  <a href={githublink} target="_blank" rel="noreferrer">
-                    <img src={github} alt="logo" />
-                  </a>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelected(false);
-                      setExpanded(false);
-                    }}
-                    className="relative z-20 font-header text-secondary"
-                  >
-                    Close
-                  </button>
-                </div>
-              </div>
-            )}
-          </div>
+      {/* {(!expanded || selected) && ( */}
+      <div className="h-full w-full backdrop-filter backdrop-brightness-50 grid grid-cols-2">
+        <div className="flex flex-col p-10 justify-center w-full mt-auto">
+          <h1 className="font-header text-3xl text-white">{title}</h1>
+          <hr ref={line} className="text-primary border-t-4 w-10" />
+          <span
+            ref={techRef}
+            className="text-white text-xl font-body self-end opacity-0 transform translate-x-full "
+          >
+            {tech.join([" | "])}
+          </span>
         </div>
-      )}
+
+        <div className="relative w-full h-full">
+          <div
+            ref={infoBack}
+            className="absolute top-0 right-0 bg-tertiary w-full h-0 opacity-0"
+          />
+          {selected && (
+            <div
+              ref={infoRef}
+              className="absolute top-0 right-0 w-full h-full flex flex-col py-10 px-14 opacity-0"
+            >
+              <p className="flex-grow font-body text-secondary text-xl">
+                {description}
+              </p>
+              <div className="flex justify-between mt-10">
+                <a href={githublink} target="_blank" rel="noreferrer">
+                  <img src={github} alt="logo" />
+                </a>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setSelected(false);
+                    setExpanded(false);
+                  }}
+                  className="relative z-20 font-header text-secondary"
+                >
+                  Close
+                </button>
+              </div>
+            </div>
+          )}
+        </div>
+      </div>
+      {/* )} */}
     </div>
   );
 };

@@ -7,10 +7,16 @@ const Projects = (props) => {
 
   return (
     <div ref={props.reference} className="asection h-screen bg-secondary p-32 ">
-      <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
-        <span>Projects</span>
-      </h1>
-      <div className="flex flex-col h-full justify-between">
+      <div className="flex items-center mb-10">
+        <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
+          <span>Projects</span>
+        </h1>
+        <div className="flex-grow h-2 bg-tertiary mx-8"></div>
+        <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
+          <span>4</span>
+        </h1>
+      </div>
+      <div className=" h-full justify-between">
         {projectInfo.map((project) => {
           return (
             <ProjectCard
