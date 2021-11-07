@@ -37,16 +37,15 @@ function App() {
 
   return (
     <Suspense fallback={<h1>loading</h1>}>
-      <div className="h-screen bg-gradient-radial from-primary to-primaryGradient">
+      <div className="h-screen ">
         <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
         <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
-        <Header
+
+        <Landing
           projRef={projectRef}
           expRef={experienceRef}
           contactRef={contactRef}
         />
-
-        <Landing />
         <Projects reference={projectRef} />
         <Experience reference={experienceRef} />
         <Contact reference={contactRef} />

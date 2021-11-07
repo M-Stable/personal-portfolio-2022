@@ -16,7 +16,6 @@ const ProjectCard = (props) => {
   const infoRef = useRef();
 
   const scrollTo = (reference) => {
-    // reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
     const yOffset = -100;
     const y =
       reference.current.getBoundingClientRect().top +
@@ -146,6 +145,7 @@ const ProjectCard = (props) => {
 
     selected ? cardExpand(tl) : cardShrink(tl);
   }, [selected]);
+
   return (
     <div
       ref={card}
@@ -156,7 +156,6 @@ const ProjectCard = (props) => {
         scrollTo(card);
       }}
     >
-      {/* {(!expanded || selected) && ( */}
       <div className="h-full w-full backdrop-filter backdrop-brightness-50 grid grid-cols-2">
         <div className="flex flex-col p-10 justify-center w-full mt-auto">
           <h1 className="font-header text-3xl text-white">{title}</h1>
@@ -201,7 +200,6 @@ const ProjectCard = (props) => {
           )}
         </div>
       </div>
-      {/* )} */}
     </div>
   );
 };
