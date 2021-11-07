@@ -1,14 +1,16 @@
-import React, { Suspense, useEffect, useRef, useState } from "react";
+import React, { Suspense, useEffect, useRef, useContext } from "react";
 import arrowDown from "../assets/arrow-down.svg";
 import { Canvas } from "@react-three/fiber";
 import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
+import { MouseContext } from "../context/mouse-context";
 import Ticker from "react-ticker";
 import logo from "../logo.svg";
 
 const Landing = (props) => {
   const { scrollTo, projRef, reference } = props;
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   const model = useRef();
   const logoRef = useRef();
@@ -106,6 +108,8 @@ const Landing = (props) => {
                   href="https://www.linkedin.com/in/francis-lee-889377191/"
                   target="_blank"
                   rel="noreferrer"
+                  onMouseEnter={() => cursorChangeHandler("hovered")}
+                  onMouseLeave={() => cursorChangeHandler("")}
                 >
                   Francis Lee
                 </a>
@@ -129,6 +133,7 @@ const Landing = (props) => {
                 duration: 1,
                 ease: "power4",
               });
+              cursorChangeHandler("hovered");
             }}
             onMouseLeave={() => {
               gsap.to(".arrowBtn", {
@@ -137,6 +142,7 @@ const Landing = (props) => {
                 duration: 1,
                 ease: "power4",
               });
+              cursorChangeHandler("");
             }}
             onClick={() => scrollTo(projRef)}
             className="h-32 w-32 p-4 mt-4"

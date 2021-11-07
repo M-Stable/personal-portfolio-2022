@@ -1,11 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import github from "../assets/github.svg";
+import { MouseContext } from "../context/mouse-context";
 
 const ProjectCard = (props) => {
   const { image, title, tech, description, githublink, expanded, setExpanded } =
     props;
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   const [selected, setSelected] = useState(false);
 
@@ -167,6 +169,8 @@ const ProjectCard = (props) => {
             setExpanded(true);
             // scrollTo(card);
           }}
+          onMouseEnter={() => cursorChangeHandler("hovered")}
+          onMouseLeave={() => cursorChangeHandler("")}
         >
           <div className="h-full w-full backdrop-filter backdrop-brightness-50 grid grid-cols-2">
             <div className="flex flex-col p-10 justify-center w-full mt-auto">

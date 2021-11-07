@@ -8,6 +8,7 @@ import Projects from "./pages/Projects";
 import Experience from "./pages/Experience";
 import Contact from "./pages/Contact";
 import { setUpCursor1, setUpCursor2 } from "./customcursor";
+import Cursor from "./components/Cursor";
 
 function App() {
   useEffect(() => {
@@ -49,8 +50,7 @@ function App() {
   return (
     <Suspense fallback={<h1>loading</h1>}>
       <div className="h-screen ">
-        <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
-        <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
+        <Cursor />
         <progress
           className="fixed top-0 left-0 w-full z-30 transform"
           max="100"
