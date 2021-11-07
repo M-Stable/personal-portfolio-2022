@@ -5,15 +5,9 @@ import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
 import Ticker from "react-ticker";
-import Header from "../components/Header";
 
 const Landing = (props) => {
   const model = useRef();
-
-  const variants = {
-    start: { opacity: 0, y: "100%" },
-    slide: { opacity: 1, y: 0 },
-  };
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -39,13 +33,24 @@ const Landing = (props) => {
         opacity: 0,
         duration: 0.8,
       },
-      "+=1"
+      "+=0.5"
+    );
+    tl.from(
+      ".arrowBtn",
+      {
+        rotate: 720,
+        duration: 1,
+        ease: "power4",
+      },
+      "-=0.7"
     );
   }, []);
 
   return (
-    <section className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient">
-      <Header {...props} />
+    <section
+      ref={props.reference}
+      className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient"
+    >
       <div className="pb-10 w-full h-full grid md:grid-rows-landing grid-rows-3 gap-8 justify-items-center items-center">
         <div ref={model} className="h-full">
           <Canvas camera={{ position: [0, 0, 3] }}>
@@ -108,7 +113,11 @@ const Landing = (props) => {
             Front End Developer
           </p>
           <div className="h-32 w-32 p-4 mt-4">
-            <img src={arrowDown} className="m-auto h-full w-full" alt="logo" />
+            <img
+              src={arrowDown}
+              className="arrowBtn m-auto h-full w-full"
+              alt="logo"
+            />
           </div>
         </section>
       </div>

@@ -10,6 +10,13 @@
     src: url("./fonts/Akira-Expanded-Demo.otf") format("opentype");
   }
 }
+
+@layer utilities {
+  .wm-vlr {
+    writing-mode: vertical-lr;
+  }
+}
+
 * {
   cursor: none;
   scroll-behavior: smooth;

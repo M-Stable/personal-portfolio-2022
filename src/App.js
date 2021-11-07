@@ -40,6 +40,7 @@ function App() {
   const projectRef = useRef();
   const experienceRef = useRef();
   const contactRef = useRef();
+  const landingRef = useRef();
 
   return (
     <Suspense fallback={<h1>loading</h1>}>
@@ -51,11 +52,13 @@ function App() {
           max="100"
           value="0"
         ></progress>
-        <Landing
+        <Header
           projRef={projectRef}
           expRef={experienceRef}
           contactRef={contactRef}
+          landingRef={landingRef}
         />
+        <Landing reference={landingRef} />
         <Projects reference={projectRef} />
         <Experience reference={experienceRef} />
         <Contact reference={contactRef} />

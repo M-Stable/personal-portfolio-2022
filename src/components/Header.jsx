@@ -3,21 +3,26 @@ import logo from "../logo.svg";
 import Menu from "./Menu";
 import { gsap } from "gsap";
 
-const Header = ({ ...props }) => {
+const Header = (props) => {
   const name = useRef();
   const logoRef = useRef();
   const menuRef = useRef();
+
+  const scrollTo = (reference) => {
+    reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   useEffect(() => {
     const tl = gsap.timeline();
 
     tl.from(
       name.current,
       {
-        y: "-100%",
+        x: "-100%",
         opacity: 0,
         duration: 0.8,
       },
-      4.8
+      4.3
     );
     tl.from(
       logoRef.current,
@@ -34,7 +39,7 @@ const Header = ({ ...props }) => {
     tl.from(
       menuRef.current,
       {
-        y: "-100%",
+        x: "-100%",
         opacity: 0,
         duration: 0.8,
       },
@@ -43,17 +48,22 @@ const Header = ({ ...props }) => {
   }, []);
 
   return (
-    <header className="relative w-full pt-10 md:px-32 px-10 z-20 flex justify-between items-center">
-      <span ref={name} className=" font-header text-secondary text-2xl">
-        Francis Lee
-      </span>
-      <img
+    <header className="fixed h-full bg-tertiary py-10 px-3 z-20 grid grid-rows-3 ">
+      {/* <img
         ref={logoRef}
         src={logo}
         className="invisible md:visible w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
         alt="logo"
-      />
-      <Menu reference={menuRef} {...props} />
+      /> */}
+      <div />
+      <Menu reference={menuRef} {...props} scrollTo={scrollTo} />
+      <h1
+        ref={name}
+        className="font-header text-secondary text-2xl wm-vlr transform rotate-180"
+        onClick={() => scrollTo(props.landingRef)}
+      >
+        Francis Lee
+      </h1>
     </header>
   );
 };
