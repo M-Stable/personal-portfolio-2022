@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect, useRef, useContext } from "react";
+import React, { useEffect, useRef, useContext } from "react";
 import arrowDown from "../assets/arrow-down.svg";
 import { Canvas } from "@react-three/fiber";
 import Model from "../Model";
@@ -67,9 +67,7 @@ const Landing = (props) => {
           <Canvas camera={{ position: [0, 0, 3] }}>
             <ambientLight intensity={0.5} />
             <directionalLight position={[0, 5, 4]} intensity={1} />
-            <Suspense fallback={null}>
-              <Model />
-            </Suspense>
+            <Model />
           </Canvas>
         </section>
         {/* <section className="flex-grow-2 w-full opacity-10 absolute top-20">
