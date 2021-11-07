@@ -6,7 +6,10 @@ const Projects = (props) => {
   const [expanded, setExpanded] = useState(false);
 
   return (
-    <div ref={props.reference} className="asection h-screen bg-secondary p-32 ">
+    <div
+      ref={props.reference}
+      className="asection relative h-screen flex flex-col bg-secondary px-32 pt-10"
+    >
       <div className="flex items-center mb-10">
         <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl">
           <span>Projects</span>
@@ -16,7 +19,7 @@ const Projects = (props) => {
           <span>4</span>
         </h1>
       </div>
-      <div className=" h-full justify-between">
+      <div className="h-full mb-10">
         {projectInfo.map((project) => {
           return (
             <ProjectCard

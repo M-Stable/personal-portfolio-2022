@@ -27,6 +27,12 @@ function App() {
     //   });
     // });
 
+    gsap.to("progress", {
+      value: 100,
+      ease: "none",
+      scrollTrigger: { scrub: 0.3 },
+    });
+
     setUpCursor1(gsap);
     setUpCursor2(gsap);
   });
@@ -40,7 +46,11 @@ function App() {
       <div className="h-screen ">
         <div className="outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none"></div>
         <div className="innerball rounded-full h-1 w-1 bg-white fixed z-50 pointer-events-none"></div>
-
+        <progress
+          className="fixed top-0 left-0 w-full z-30 transform"
+          max="100"
+          value="0"
+        ></progress>
         <Landing
           projRef={projectRef}
           expRef={experienceRef}
