@@ -1,13 +1,17 @@
-import React, { Suspense, useEffect, useRef } from "react";
+import React, { Suspense, useEffect, useRef, useState } from "react";
 import arrowDown from "../assets/arrow-down.svg";
 import { Canvas } from "@react-three/fiber";
 import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
 import Ticker from "react-ticker";
+import logo from "../logo.svg";
 
 const Landing = (props) => {
+  const { scrollTo, projRef, reference } = props;
+
   const model = useRef();
+  const logoRef = useRef();
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -45,14 +49,19 @@ const Landing = (props) => {
       "-=0.7"
     );
   }, []);
-
   return (
     <section
-      ref={props.reference}
+      ref={reference}
       className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient"
     >
+      {/* <img
+        ref={logoRef}
+        src={logo}
+        className="w-20 h-20 absolute top-10 left-20"
+        alt="logo"
+      /> */}
       <div className="pb-10 w-full h-full grid md:grid-rows-landing grid-rows-3 gap-8 justify-items-center items-center">
-        <div ref={model} className="h-full">
+        <section ref={model} className="h-full">
           <Canvas camera={{ position: [0, 0, 3] }}>
             <ambientLight intensity={0.5} />
             <directionalLight position={[0, 5, 4]} intensity={1} />
@@ -60,8 +69,8 @@ const Landing = (props) => {
               <Model />
             </Suspense>
           </Canvas>
-        </div>
-        {/* <section className="flex-grow-2 w-full opacity-10">
+        </section>
+        {/* <section className="flex-grow-2 w-full opacity-10 absolute top-20">
           <Ticker speed={10}>
             {() => (
               <h1 className="font-body text-6xl text-secondary">
@@ -112,7 +121,26 @@ const Landing = (props) => {
           <p className="text-center text-2xl text-secondary font-body">
             Front End Developer
           </p>
-          <div className="h-32 w-32 p-4 mt-4">
+          <div
+            onMouseEnter={() => {
+              gsap.to(".arrowBtn", {
+                rotate: 360,
+                scale: 1.2,
+                duration: 1,
+                ease: "power4",
+              });
+            }}
+            onMouseLeave={() => {
+              gsap.to(".arrowBtn", {
+                rotate: -360,
+                scale: 1,
+                duration: 1,
+                ease: "power4",
+              });
+            }}
+            onClick={() => scrollTo(projRef)}
+            className="h-32 w-32 p-4 mt-4"
+          >
             <img
               src={arrowDown}
               className="arrowBtn m-auto h-full w-full"

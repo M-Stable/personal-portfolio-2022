@@ -1,22 +1,18 @@
 import React, { useEffect, useRef } from "react";
-import logo from "../logo.svg";
 import Menu from "./Menu";
 import { gsap } from "gsap";
 
 const Header = (props) => {
   const name = useRef();
-  const logoRef = useRef();
   const menuRef = useRef();
 
-  const scrollTo = (reference) => {
-    reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
-  };
+  const { scrollTo } = props;
 
   useEffect(() => {
     const tl = gsap.timeline();
 
     tl.from(
-      name.current,
+      ".header",
       {
         x: "-100%",
         opacity: 0,
@@ -25,16 +21,13 @@ const Header = (props) => {
       4.3
     );
     tl.from(
-      logoRef.current,
+      name.current,
       {
-        y: "-100%",
+        x: "-100%",
         opacity: 0,
         duration: 0.8,
-        stagger: {
-          amount: 0.4,
-        },
       },
-      "-=.7"
+      "-=.5"
     );
     tl.from(
       menuRef.current,
@@ -48,13 +41,7 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header className="fixed h-full bg-tertiary py-10 px-3 z-20 grid grid-rows-3 ">
-      {/* <img
-        ref={logoRef}
-        src={logo}
-        className="invisible md:visible w-20 h-20 absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
-        alt="logo"
-      /> */}
+    <header className="header fixed h-full bg-tertiary py-10 px-3 z-20 grid grid-rows-3 ">
       <div />
       <Menu reference={menuRef} {...props} scrollTo={scrollTo} />
       <h1

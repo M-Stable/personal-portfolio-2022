@@ -18,7 +18,7 @@ function App() {
     // sections.forEach((section) => {
     //   ScrollTrigger.create({
     //     trigger: section,
-    //     ease: "none",
+    //     ease: "back",
     //     start: "top top",
     //     pin: true,
     //     scrub: 1,
@@ -42,6 +42,10 @@ function App() {
   const contactRef = useRef();
   const landingRef = useRef();
 
+  const scrollTo = (reference) => {
+    reference.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   return (
     <Suspense fallback={<h1>loading</h1>}>
       <div className="h-screen ">
@@ -57,8 +61,13 @@ function App() {
           expRef={experienceRef}
           contactRef={contactRef}
           landingRef={landingRef}
+          scrollTo={scrollTo}
         />
-        <Landing reference={landingRef} />
+        <Landing
+          reference={landingRef}
+          projRef={projectRef}
+          scrollTo={scrollTo}
+        />
         <Projects reference={projectRef} />
         <Experience reference={experienceRef} />
         <Contact reference={contactRef} />
