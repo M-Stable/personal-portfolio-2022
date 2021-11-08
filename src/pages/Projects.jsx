@@ -20,9 +20,11 @@ const Projects = (props) => {
         </h1>
       </div>
       <div className="h-full mb-10">
-        {projectInfo.map((project) => {
+        {projectInfo.map((project, i) => {
           return (
             <ProjectCard
+              key={i}
+              order={i + 2}
               image={project.image}
               title={project.title}
               tech={project.tech}
