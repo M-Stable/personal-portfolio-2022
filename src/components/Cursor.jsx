@@ -8,8 +8,8 @@ const Cursor = () => {
   return (
     <>
       <div
-        className={`outerball rounded-full h-6 w-6 bg-tertiary opacity-50 fixed z-50 pointer-events-none ${
-          cursorType === "hovered" && "w-16 h-16 border-4 border-secondary "
+        className={`outerball rounded-full h-6 w-6 bg-primary fixed z-50 pointer-events-none ${
+          cursorType === "hovered" && "w-16 h-16"
         }`}
       ></div>
       <div

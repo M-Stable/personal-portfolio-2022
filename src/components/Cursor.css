@@ -4,4 +4,5 @@
   -webkit-transition-timing-function: ease-out;
   transition-timing-function: ease-out;
   will-change: width, height, transform, border;
+  mix-blend-mode: exclusion;
 }
