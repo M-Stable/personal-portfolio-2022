@@ -10,6 +10,9 @@ module.exports = {
       white: "#FFFFFF",
     },
     extend: {
+      width: {
+        "120%": "120%",
+      },
       backgroundSize: {
         "120%": "120%",
       },

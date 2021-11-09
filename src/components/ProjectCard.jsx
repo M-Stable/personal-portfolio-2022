@@ -20,6 +20,12 @@ const ProjectCard = (props) => {
   const tlHide = useRef();
 
   const cardExpand = (tl) => {
+    tl.to(card.current, {
+      x: "0",
+      width: "100%",
+      duration: 0.5,
+      ease: "expo",
+    });
     tl.to(
       line.current,
       {
@@ -95,7 +101,7 @@ const ProjectCard = (props) => {
     tl.to(
       card.current,
       {
-        height: "auto",
+        height: "20%",
         duration: 0.2,
         ease: "circ",
       },
@@ -110,7 +116,6 @@ const ProjectCard = (props) => {
       card.current,
       {
         height: 0,
-        margin: 0,
         opacity: 0,
       },
       1.2
@@ -156,24 +161,20 @@ const ProjectCard = (props) => {
     !expanded && !selected && tlHide.current.reverse(selected, expanded);
   }, [selected, expanded]);
 
-  useEffect(() => {
-    expanded && cursorChangeHandler("");
-  }, [expanded, cursorChangeHandler]);
-
   return (
     <>
-      {/* {(!expanded || selected) && ( */}
       <div
         ref={card}
-        className={`card "h-full w-full shadow-card bg-project-${image} bg-cover bg-center mb-14`}
+        className={`card h-1/5 w-120% shadow-card bg-project-${image} bg-cover bg-center transform translate-x-24`}
         onClick={() => {
           setSelected(true);
           setExpanded(true);
+          cursorChangeHandler("");
         }}
         onMouseEnter={() => cursorChangeHandler("hovered")}
         onMouseLeave={() => cursorChangeHandler("")}
       >
-        <div className="h-full w-full backdrop-filter backdrop-brightness-50 grid grid-cols-2">
+        <div className="h-full w-full backdrop-filter backdrop-brightness-50 flex flex-col">
           <div className="flex flex-col p-10 justify-center w-full mt-auto">
             <h1 className="font-header text-3xl text-white">{title}</h1>
             <hr ref={line} className="text-primary border-t-4 w-10" />
@@ -220,7 +221,6 @@ const ProjectCard = (props) => {
           </div>
         </div>
       </div>
-      {/* )} */}
     </>
   );
 };
