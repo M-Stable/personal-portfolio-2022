@@ -3,7 +3,7 @@ import ProjectCard from "../components/ProjectCard";
 import { projectInfo } from "./projectInfo";
 
 const Projects = (props) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(null);
 
   return (
     <div
@@ -19,7 +19,7 @@ const Projects = (props) => {
           <span>4</span>
         </h1>
       </div>
-      <div className="grid grid-cols-2 h-full py-10">
+      <div className="grid grid-cols-projects h-full py-10">
         <div className="h-full w-full bg-secondary"></div>
         <div className="h-full flex flex-col justify-between">
           {projectInfo.map((project, i) => {

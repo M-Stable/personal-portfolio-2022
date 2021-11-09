@@ -17,25 +17,136 @@ const ProjectCard = (props) => {
   const infoBack = useRef();
   const infoRef = useRef();
 
-  const tlHide = useRef();
+  const [tlHide] = useState(gsap.timeline({ paused: true }));
+  const [tlShow] = useState(gsap.timeline({ paused: true }));
 
-  const cardExpand = (tl) => {
-    tl.to(card.current, {
-      x: "0",
-      width: "100%",
-      duration: 0.5,
-      ease: "expo",
+  const [tlExpand] = useState(gsap.timeline({ paused: true }));
+  const [tlShrink] = useState(gsap.timeline({ paused: true }));
+
+  // const cardExpand = (tl) => {
+  //   tl.to(card.current, {
+  //     x: "0",
+  //     width: "100%",
+  //     duration: 0.5,
+  //     ease: "expo",
+  //   });
+  //   tl.to(
+  //     line.current,
+  //     {
+  //       width: "100%",
+  //       duration: 0.5,
+  //       ease: "expo",
+  //     },
+  //     0.3
+  //   );
+  //   tl.to(
+  //     techRef.current,
+  //     {
+  //       x: 0,
+  //       opacity: 1,
+  //       duration: 1,
+  //     },
+  //     "-=.4"
+  //   );
+  //   tl.to(card.current, {
+  //     height: "100%",
+  //     duration: 0.5,
+  //     ease: "circ",
+  //   });
+  //   tl.to(
+  //     infoBack.current,
+  //     {
+  //       height: "100%",
+  //       opacity: "50%",
+  //       duration: 1,
+  //       ease: "expo",
+  //     },
+  //     "-=.5"
+  //   );
+  //   tl.to(infoRef.current, {
+  //     opacity: 1,
+  //     duration: 1,
+  //   });
+  // };
+
+  // const cardShrink = (tl) => {
+  //   tl.to(infoRef.current, {
+  //     opacity: 0,
+  //     duration: 0.5,
+  //   });
+  //   tl.to(
+  //     infoBack.current,
+  //     {
+  //       height: 0,
+  //       opacity: 0,
+  //       duration: 0.5,
+  //       ease: "expo",
+  //     },
+  //     "-=.5"
+  //   );
+  //   tl.to(
+  //     techRef.current,
+  //     {
+  //       x: "100%",
+  //       opacity: 0,
+  //       duration: 0.5,
+  //     },
+  //     "-=.5"
+  //   );
+  //   tl.to(
+  //     line.current,
+  //     {
+  //       width: "2.5rem",
+  //       duration: 0.2,
+  //       ease: "expo",
+  //     },
+  //     "-=.5"
+  //   );
+  //   tl.to(
+  //     card.current,
+  //     {
+  //       height: "20%",
+  //       duration: 0.2,
+  //       ease: "circ",
+  //     },
+  //     "-=.2"
+  //   );
+  // };
+
+  useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    tlHide.to(card.current, {
+      height: 0,
+      opacity: 0,
     });
-    tl.to(
-      line.current,
+
+    tlShow.to(
+      card.current,
       {
+        height: "20%",
+        opacity: 1,
+      },
+      1.2
+    );
+
+    //EXPAND
+    tlExpand.to(
+      card.current,
+      {
+        x: "0",
         width: "100%",
         duration: 0.5,
         ease: "expo",
       },
       0.3
     );
-    tl.to(
+    tlExpand.to(line.current, {
+      width: "100%",
+      duration: 0.5,
+      ease: "expo",
+    });
+    tlExpand.to(
       techRef.current,
       {
         x: 0,
@@ -44,12 +155,12 @@ const ProjectCard = (props) => {
       },
       "-=.4"
     );
-    tl.to(card.current, {
+    tlExpand.to(card.current, {
       height: "100%",
       duration: 0.5,
       ease: "circ",
     });
-    tl.to(
+    tlExpand.to(
       infoBack.current,
       {
         height: "100%",
@@ -59,67 +170,47 @@ const ProjectCard = (props) => {
       },
       "-=.5"
     );
-    tl.to(infoRef.current, {
+    tlExpand.to(infoRef.current, {
       opacity: 1,
       duration: 1,
     });
-  };
 
-  const cardShrink = (tl) => {
-    tl.to(infoRef.current, {
+    //SHRINK
+    tlShrink.to(
+      infoRef.current,
+      {
+        opacity: 0,
+        duration: 0.5,
+      },
+      0.3
+    );
+    tlShrink.to(techRef.current, {
+      x: "100%",
       opacity: 0,
       duration: 0.5,
     });
-    tl.to(
-      infoBack.current,
-      {
-        height: 0,
-        opacity: 0,
-        duration: 0.5,
-        ease: "expo",
-      },
-      "-=.5"
-    );
-    tl.to(
-      techRef.current,
-      {
-        x: "100%",
-        opacity: 0,
-        duration: 0.5,
-      },
-      "-=.5"
-    );
-    tl.to(
-      line.current,
-      {
-        width: "2.5rem",
-        duration: 0.2,
-        ease: "expo",
-      },
-      "-=.5"
-    );
-    tl.to(
-      card.current,
-      {
-        height: "20%",
-        duration: 0.2,
-        ease: "circ",
-      },
-      "-=.2"
-    );
-  };
-
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-
-    tlHide.current = gsap.timeline().to(
-      card.current,
-      {
-        height: 0,
-        opacity: 0,
-      },
-      1.2
-    );
+    tlShrink.to(infoBack.current, {
+      height: 0,
+      opacity: 0,
+      duration: 0.5,
+      ease: "expo",
+    });
+    tlShrink.to(line.current, {
+      width: "2.5rem",
+      duration: 0.2,
+      ease: "expo",
+    });
+    tlShrink.to(card.current, {
+      height: "20%",
+      duration: 0.2,
+      ease: "circ",
+    });
+    tlShrink.to(card.current, {
+      x: "6rem",
+      width: "120%",
+      duration: 0.2,
+      ease: "circ",
+    });
 
     // const skewSetter = gsap.quickSetter(".card", "skewX", "deg");
     // const proxy = { skew: 0 };
@@ -153,13 +244,23 @@ const ProjectCard = (props) => {
   }, []);
 
   useEffect(() => {
-    const tl = gsap.timeline();
+    if (expanded && !selected) {
+      tlHide.pause(false);
+      tlHide.play();
+    }
+    if (expanded !== null && !expanded && !selected) {
+      tlShow.pause(false);
+      tlShow.play();
+    }
+  }, [selected, expanded, tlExpand, tlShrink, tlHide, tlShow]);
 
-    selected ? cardExpand(tl) : cardShrink(tl);
+  const onEnter = ({ currentTarget }) => {
+    gsap.to(currentTarget, { x: 50 });
+  };
 
-    expanded && !selected && tlHide.current.play(selected, expanded);
-    !expanded && !selected && tlHide.current.reverse(selected, expanded);
-  }, [selected, expanded]);
+  const onLeave = ({ currentTarget }) => {
+    gsap.to(currentTarget, { x: "6rem" });
+  };
 
   return (
     <>
@@ -167,12 +268,20 @@ const ProjectCard = (props) => {
         ref={card}
         className={`card h-1/5 w-120% shadow-card bg-project-${image} bg-cover bg-center transform translate-x-24`}
         onClick={() => {
+          !selected && tlExpand.pause(false);
+          !selected && !selected && tlExpand.play();
           setSelected(true);
           setExpanded(true);
           cursorChangeHandler("");
         }}
-        onMouseEnter={() => cursorChangeHandler("hovered")}
-        onMouseLeave={() => cursorChangeHandler("")}
+        onMouseEnter={(e) => {
+          cursorChangeHandler("hovered");
+          !selected && onEnter(e);
+        }}
+        onMouseLeave={(e) => {
+          cursorChangeHandler("");
+          !selected && onLeave(e);
+        }}
       >
         <div className="h-full w-full backdrop-filter backdrop-brightness-50 flex flex-col">
           <div className="flex flex-col p-10 justify-center w-full mt-auto">
@@ -191,33 +300,36 @@ const ProjectCard = (props) => {
               ref={infoBack}
               className="absolute top-0 right-0 bg-tertiary w-full h-0 opacity-0"
             />
-            {selected && (
-              <div
-                ref={infoRef}
-                className="absolute top-0 right-0 w-full h-full flex flex-col py-10 px-14 opacity-0"
-              >
-                <p className="flex-grow font-body text-secondary text-xl">
-                  {description}
-                </p>
-                <div className="flex justify-between mt-10">
-                  <a href={githublink} target="_blank" rel="noreferrer">
-                    <img src={github} alt="logo" />
-                  </a>
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      setSelected(false);
-                      setExpanded(false);
-                    }}
-                    onMouseEnter={() => cursorChangeHandler("hovered")}
-                    onMouseLeave={() => cursorChangeHandler("")}
-                    className="relative z-20 font-header text-secondary"
-                  >
-                    Close
-                  </button>
-                </div>
+            {/* {selected && ( */}
+            <div
+              ref={infoRef}
+              className="absolute top-0 right-0 w-full h-full flex flex-col py-10 px-14 opacity-0"
+            >
+              <p className="flex-grow font-body text-secondary text-xl">
+                {description}
+              </p>
+              <div className="flex justify-between mt-10">
+                <a href={githublink} target="_blank" rel="noreferrer">
+                  <img src={github} alt="logo" />
+                </a>
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    tlShrink.pause(false);
+
+                    tlShrink.play();
+                    setSelected(false);
+                    setExpanded(false);
+                  }}
+                  onMouseEnter={() => cursorChangeHandler("hovered")}
+                  onMouseLeave={() => cursorChangeHandler("")}
+                  className="relative z-20 font-header text-secondary"
+                >
+                  Close
+                </button>
               </div>
-            )}
+            </div>
+            {/* )} */}
           </div>
         </div>
       </div>
