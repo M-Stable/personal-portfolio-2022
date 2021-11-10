@@ -41,7 +41,7 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header className="header fixed h-full bg-tertiary py-10 px-3 z-20 grid grid-rows-3 ">
+    <header className="header fixed h-full bg-primary py-10 px-3 z-20 grid grid-rows-3 ">
       <div />
       <Menu reference={menuRef} {...props} scrollTo={scrollTo} />
       <h1

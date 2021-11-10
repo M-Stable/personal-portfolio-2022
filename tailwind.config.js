@@ -3,18 +3,32 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
-      primary: "#BB0D0D",
+      // primary: "#BB0D0D",
+      // primaryGradient: "#5C0A0A",
+      // secondary: "#F8F2DC",
+      // tertiary: "#000F08",
+      // white: "#FFFFFF",
+
+      primary: "#000F08",
       primaryGradient: "#5C0A0A",
       secondary: "#F8F2DC",
-      tertiary: "#000F08",
+      tertiary: "#BB0D0D",
       white: "#FFFFFF",
+      black: "#000000",
     },
     extend: {
       width: {
         "120%": "120%",
+        double: "200%",
+      },
+      height: {
+        project: "calc(100vh * 4/5)",
       },
       backgroundSize: {
         "120%": "120%",
+      },
+      backdropBrightness: {
+        card: ".2",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

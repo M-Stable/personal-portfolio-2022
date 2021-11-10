@@ -54,7 +54,8 @@ const Landing = (props) => {
   return (
     <section
       ref={reference}
-      className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient"
+      className="asection h-full w-full bg-primary"
+      // className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient"
     >
       {/* <img
         ref={logoRef}
@@ -97,10 +98,10 @@ const Landing = (props) => {
         </section> */}
 
         <section className="w-full h-full font-header text-center xl:text-6xl lg:text-4xl text-xl">
-          <h1 className="hidetext leading-tight">
+          <h1 className="hidetext leading-tight text-tertiary">
             <span>Hello,</span>
           </h1>
-          <h1 className="hidetext leading-tight">
+          <h1 className="hidetext leading-tight text-tertiary">
             <span>
               My name is{" "}
               <span className=" glitch text-secondary">
@@ -116,7 +117,7 @@ const Landing = (props) => {
               </span>
             </span>
           </h1>
-          <h1 className="hidetext leading-tight">
+          <h1 className="hidetext leading-tight text-tertiary">
             <span>Nice to meet you</span>
           </h1>
         </section>

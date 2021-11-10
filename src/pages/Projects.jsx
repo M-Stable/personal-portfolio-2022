@@ -1,41 +1,22 @@
-import React, { useState } from "react";
-import ProjectCard from "../components/ProjectCard";
+import React from "react";
 import { projectInfo } from "./projectInfo";
+import ProjectGrid from "../components/ProjectGrid";
 
 const Projects = (props) => {
-  const [expanded, setExpanded] = useState(null);
-
   return (
     <div
       ref={props.reference}
-      className="asection relative h-screen flex flex-col bg-primary px-32 py-10"
+      className={`asection relative flex flex-col bg-primary px-32 py-10`}
     >
-      <div className="flex items-center mb-10">
-        <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl text-secondary">
+      <div className="flex flex-col items-center my-20">
+        <h1 className="font-header xl:text-8xl lg:text-4xl sm:text-2xl text-secondary">
           <span>Projects</span>
         </h1>
-        <div className="flex-grow h-2 bg-secondary mx-8"></div>
-        <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl text-secondary">
-          <span>4</span>
-        </h1>
       </div>
-      <div className="grid grid-cols-projects h-full py-10">
-        <div className="h-full w-full bg-secondary"></div>
-        <div className="h-full flex flex-col justify-between">
+      <div className="py-10">
+        <div className="flex flex-col w-full items-center">
           {projectInfo.map((project, i) => {
-            return (
-              <ProjectCard
-                key={i}
-                order={i + 2}
-                image={project.image}
-                title={project.title}
-                tech={project.tech}
-                description={project.description}
-                githublink={project.github}
-                expanded={expanded}
-                setExpanded={setExpanded}
-              />
-            );
+            return <ProjectGrid key={i} number={i} project={project} />;
           })}
         </div>
       </div>
