@@ -65,13 +65,13 @@ const Landing = (props) => {
         className="w-20 h-20 absolute top-10 left-32"
         alt="logo"
       />
-      {/* <div className="absolute -bottom-64 w-1/2 h-full right-0 z-50">
-        <Canvas camera={{ position: [0, 1, 3] }}>
+      <div className="absolute w-1/3 h-full right-0 z-50">
+        <Canvas camera={{ position: [0, 0, 1] }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[0, 5, 4]} intensity={1} />
           <Model />
         </Canvas>
-      </div> */}
+      </div>
       <div className="w-full h-full flex justify-center items-center">
         <section className="w-full ">
           <div className="font-header xl:text-6xl lg:text-4xl text-xl mb-5">
@@ -81,7 +81,7 @@ const Landing = (props) => {
             <h1 className="hidetext leading-tight text-secondary">
               <span>
                 My name is{" "}
-                <span className=" glitch text-tertiary">
+                {/* <span className=" glitch text-tertiary">
                   <a
                     href="https://www.linkedin.com/in/francis-lee-889377191/"
                     target="_blank"
@@ -91,6 +91,15 @@ const Landing = (props) => {
                   >
                     Francis Lee
                   </a>
+                </span> */}
+                <span
+                  class="glitch"
+                  onMouseEnter={() => cursorChangeHandler("hovered")}
+                  onMouseLeave={() => cursorChangeHandler("")}
+                >
+                  <span aria-hidden="true">Francis Lee</span>
+                  Francis Lee
+                  <span aria-hidden="true">Francis Lee</span>
                 </span>
               </span>
             </h1>

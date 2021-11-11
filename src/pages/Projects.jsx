@@ -63,21 +63,11 @@ const Projects = (props) => {
       </div> */}
 
       <div className="relative mb-24">
-        <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
-        <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
-        <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
-        <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
-        <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
+        {Array(5).fill(
+          <h1 className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min">
+            My Work
+          </h1>
+        )}
         <h1 className="absolute text-6xl font-header text-secondary whitespace-nowrap w-min">
           My Work
         </h1>
