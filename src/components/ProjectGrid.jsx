@@ -33,12 +33,13 @@ const ProjectGrid = ({ project, number }) => {
     gsap.from(titleLine.current, {
       scrollTrigger: {
         trigger: projImg.current,
+        toggleActions: "play none none reset",
       },
       width: 0,
       opacity: 0,
       duration: 1.2,
       ease: "power4",
-      delay: 1,
+      delay: 0.5,
     });
   }, []);
 
@@ -58,8 +59,9 @@ const ProjectGrid = ({ project, number }) => {
   return (
     <div className="mb-44 w-full">
       <div className="flex items-center justify-center w-full mb-5">
-        <div ref={titleLine} className="w-full h-2 bg-secondary mr-8"></div>
-        <h1 className="font-header xl:text-6xl lg:text-4xl sm:text-2xl text-secondary">
+        <h1 className="font-header text-xl text-secondary">Project</h1>
+        <div ref={titleLine} className="w-full h-1 bg-secondary mx-8"></div>
+        <h1 className="font-header xl:text-2xl lg:text-2xl sm:text-xl text-secondary">
           <span>{number + 1}</span>
         </h1>
       </div>

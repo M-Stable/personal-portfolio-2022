@@ -36,7 +36,7 @@ const Model = () => {
   });
 
   return (
-    <group ref={group} position={[0, -4, -5]} scale={viewport.width / 200}>
+    <group ref={group} position={[0, -1, 0]} scale={viewport.width / 1000}>
       <mesh ref={modelRef}>
         <primitive object={scene} dispose={null} />
       </mesh>

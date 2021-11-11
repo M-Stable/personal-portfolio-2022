@@ -14,6 +14,8 @@ const Landing = (props) => {
 
   const model = useRef();
   const logoRef = useRef();
+  const fed = useRef();
+  const fedLine = useRef();
 
   useEffect(() => {
     const tl = gsap.timeline();
@@ -34,98 +36,78 @@ const Landing = (props) => {
       "-=1"
     );
     tl.from(
-      ".scroll-to-action",
+      fedLine.current,
       {
-        opacity: 0,
+        width: 0,
         duration: 0.8,
       },
-      "+=0.5"
+      "-=.5"
     );
     tl.from(
-      ".arrowBtn",
+      logoRef.current,
       {
-        rotate: 720,
+        y: -100,
+        opacity: 0,
         duration: 1,
         ease: "power4",
       },
-      "-=0.7"
+      "-=.5"
     );
   }, []);
   return (
     <section
       ref={reference}
-      className="asection h-full w-full bg-primary"
-      // className="asection h-full w-full bg-gradient-radial from-primary to-primaryGradient"
+      className="asection h-full w-full bg-primary px-32"
     >
-      {/* <img
+      <img
         ref={logoRef}
         src={logo}
-        className="w-20 h-20 absolute top-10 left-20"
+        className="w-20 h-20 absolute top-10 left-32"
         alt="logo"
-      /> */}
-      <div className="pb-10 w-full h-full grid md:grid-rows-landing grid-rows-3 gap-8 justify-items-center items-center">
-        <section ref={model} className="h-full">
-          <Canvas camera={{ position: [0, 0, 3] }}>
-            <ambientLight intensity={0.5} />
-            <directionalLight position={[0, 5, 4]} intensity={1} />
-            <Suspense fallback={null}>
-              <Model />
-            </Suspense>
-          </Canvas>
-        </section>
-        {/* <section className="flex-grow-2 w-full opacity-10 absolute top-20">
-          <Ticker speed={10}>
-            {() => (
-              <h1 className="font-body text-6xl text-secondary">
-                <span>You are the architect of your own future. </span>
-              </h1>
-            )}
-          </Ticker>
-          <Ticker speed={20}>
-            {() => (
-              <h1 className="font-body text-6xl text-secondary">
-                <span>You are the architect of your own future. </span>
-              </h1>
-            )}
-          </Ticker>
-          <Ticker speed={15}>
-            {() => (
-              <h1 className="font-body text-6xl text-secondary">
-                <span>You are the architect of your own future. </span>
-              </h1>
-            )}
-          </Ticker>
-        </section> */}
-
-        <section className="w-full h-full font-header text-center xl:text-6xl lg:text-4xl text-xl">
-          <h1 className="hidetext leading-tight text-tertiary">
-            <span>Hello,</span>
-          </h1>
-          <h1 className="hidetext leading-tight text-tertiary">
-            <span>
-              My name is{" "}
-              <span className=" glitch text-secondary">
-                <a
-                  href="https://www.linkedin.com/in/francis-lee-889377191/"
-                  target="_blank"
-                  rel="noreferrer"
-                  onMouseEnter={() => cursorChangeHandler("hovered")}
-                  onMouseLeave={() => cursorChangeHandler("")}
-                >
-                  Francis Lee
-                </a>
+      />
+      {/* <div className="absolute -bottom-64 w-1/2 h-full right-0 z-50">
+        <Canvas camera={{ position: [0, 1, 3] }}>
+          <ambientLight intensity={0.5} />
+          <directionalLight position={[0, 5, 4]} intensity={1} />
+          <Model />
+        </Canvas>
+      </div> */}
+      <div className="w-full h-full flex justify-center items-center">
+        <section className="w-full ">
+          <div className="font-header xl:text-6xl lg:text-4xl text-xl mb-5">
+            <h1 className="hidetext leading-tight text-secondary">
+              <span>Hello,</span>
+            </h1>
+            <h1 className="hidetext leading-tight text-secondary">
+              <span>
+                My name is{" "}
+                <span className=" glitch text-tertiary">
+                  <a
+                    href="https://www.linkedin.com/in/francis-lee-889377191/"
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseEnter={() => cursorChangeHandler("hovered")}
+                    onMouseLeave={() => cursorChangeHandler("")}
+                  >
+                    Francis Lee
+                  </a>
+                </span>
               </span>
-            </span>
-          </h1>
-          <h1 className="hidetext leading-tight text-tertiary">
-            <span>Nice to meet you</span>
-          </h1>
+            </h1>
+            <h1 className="hidetext leading-tight text-secondary">
+              <span>Nice to meet you</span>
+            </h1>
+          </div>
+
+          <div className="hidetext flex items-center">
+            <div ref={fedLine} className="h-1 w-4/12 mr-5 bg-secondary" />
+            <p className="text-2xl text-secondary font-body">
+              Front End Developer
+            </p>
+          </div>
         </section>
 
-        <section className="scroll-to-action h-full flex flex-col items-center">
-          <p className="text-center text-2xl text-secondary font-body">
-            Front End Developer
-          </p>
+        {/* <section className="scroll-to-action h-full flex flex-col items-center">
           <div
             onMouseEnter={() => {
               gsap.to(".arrowBtn", {
@@ -154,7 +136,7 @@ const Landing = (props) => {
               alt="logo"
             />
           </div>
-        </section>
+        </section> */}
       </div>
     </section>
   );

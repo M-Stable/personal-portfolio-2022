@@ -116,7 +116,7 @@ const ProjectCard = (props) => {
         <div className="flex flex-col items-center">
           <div className="flex flex-col justify-center">
             <h1 className="font-header text-3xl text-white mb-3">{title}</h1>
-            <hr ref={line} className="text-primary border-t-4 w-10" />
+            <hr ref={line} className="text-tertiary border-t-4 w-10" />
           </div>
 
           <button
