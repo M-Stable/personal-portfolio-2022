@@ -65,16 +65,16 @@ const Landing = (props) => {
         className="w-20 h-20 absolute top-10 left-32"
         alt="logo"
       />
-      <div className="absolute w-1/3 h-full right-0 z-50">
+      {/* <div className="absolute w-1/3 h-full right-0 z-50">
         <Canvas camera={{ position: [0, 0, 1] }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[0, 5, 4]} intensity={1} />
           <Model />
         </Canvas>
-      </div>
+      </div> */}
       <div className="w-full h-full flex justify-center items-center">
         <section className="w-full ">
-          <div className="font-header xl:text-6xl lg:text-4xl text-xl mb-5">
+          <div className="font-header xl:text-6xl lg:text-4xl text-xl mb-5 ">
             <h1 className="hidetext leading-tight text-secondary">
               <span>Hello,</span>
             </h1>
@@ -93,7 +93,7 @@ const Landing = (props) => {
                   </a>
                 </span> */}
                 <span
-                  class="glitch"
+                  className="glitch text-tertiary"
                   onMouseEnter={() => cursorChangeHandler("hovered")}
                   onMouseLeave={() => cursorChangeHandler("")}
                 >
