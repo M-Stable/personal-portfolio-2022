@@ -74,7 +74,7 @@ const Landing = (props) => {
       <div className="w-full h-full flex justify-center items-center">
         <section className="w-full ">
           <div className="font-header xl:text-6xl lg:text-4xl text-xl mb-5 ">
-            <h1 className="hidetext leading-tight text-secondary">
+            <h1 className="hidetext leading-tight text-tertiary">
               <span>Hello,</span>
             </h1>
             <h1 className="hidetext leading-tight text-secondary">
@@ -92,7 +92,7 @@ const Landing = (props) => {
                   </a>
                 </span> */}
                 <span
-                  className="glitch text-tertiary"
+                  className="glitch text-secondary"
                   onMouseEnter={() => cursorChangeHandler("hovered")}
                   onMouseLeave={() => cursorChangeHandler("")}
                 >

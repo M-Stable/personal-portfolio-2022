@@ -12,11 +12,21 @@ const Contact = (props) => {
   const fallAnimation = useRef();
   const copiedText = useRef();
 
+  const email = "fchanghlee@gmail.com";
+
   useEffect(() => {
-    animation.current = gsap.to(line.current, {
-      width: "100%",
-      paused: true,
-    });
+    animation.current = gsap
+      .timeline({ paused: true })
+      .to(line.current, {
+        width: "100%",
+      })
+      .to(
+        "p",
+        {
+          opacity: 1,
+        },
+        "-= .5"
+      );
 
     fallAnimation.current = gsap
       .timeline({ paused: true })
@@ -65,7 +75,7 @@ const Contact = (props) => {
             onClick={() => {
               gsap.set(copiedText.current, { visibility: "visible" });
               fallAnimation.current.restart();
-              navigator.clipboard.writeText("fchanghlee@gmail.com");
+              navigator.clipboard.writeText(email);
             }}
             onMouseEnter={() => {
               cursorChangeHandler("hovered");
@@ -76,9 +86,10 @@ const Contact = (props) => {
               animation.current.reverse();
             }}
           >
-            fchanghlee@gmail.com
+            {email}
           </h1>
           <hr ref={line} className="border-2 border-secondary w-1/12" />
+          <p className="font-body text-secondary opacity-0">click to copy</p>
           <div className="flex justify-center mt-14">
             <a
               href="https://www.linkedin.com/in/francis-lee-889377191/"

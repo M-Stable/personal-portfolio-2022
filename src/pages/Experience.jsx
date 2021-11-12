@@ -71,7 +71,7 @@ const Experience = (props) => {
         </div>
       </div>
       <h1 className="font-header text-2xl text-secondary text-center mt-5">
-        Could be for you
+        You could be next
       </h1>
     </div>
   );
