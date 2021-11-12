@@ -1,73 +1,106 @@
-import React from "react";
+import React, { useContext, useRef, useEffect, useState } from "react";
 import linkedin from "../assets/linkedin.svg";
 import github from "../assets/github.svg";
+import { MouseContext } from "../context/mouse-context";
+import { gsap } from "gsap";
 
 const Contact = (props) => {
-  return (
-    <section
-      ref={props.reference}
-      className="asection h-screen bg-tertiary p-32"
-    >
-      <div className="grid grid-cols-2">
-        <div className="w-min">
-          <h1 className="font-header text-secondary text-6xl whitespace-nowrap">
-            Get in touch
-          </h1>
-          <p className="text-secondary font-body text-xl my-32">
-            Lorem ipsum. I just graudated from the University of auckland. I am
-            passionate about front end development. Oh, and I love to make
-            music. Im happy to get in touch and answer any questions you may
-            have!
-          </p>
+  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
-          <div className="flex mb-40">
-            <img src={linkedin} alt="logo" />
-            <img src={github} className="ml-7" alt="logo" />
+  const line = useRef();
+  const animation = useRef();
+  const fallAnimation = useRef();
+  const copiedText = useRef();
+
+  useEffect(() => {
+    animation.current = gsap.to(line.current, {
+      width: "100%",
+      paused: true,
+    });
+
+    fallAnimation.current = gsap
+      .timeline({ paused: true })
+      .to(
+        copiedText.current,
+        {
+          xPercent: 100,
+          ease: "expo",
+          duration: 1.5,
+        },
+        0.1
+      )
+      .to(
+        copiedText.current,
+        {
+          rotate: 280,
+          y: 200,
+          ease: "bounce",
+          duration: 1.5,
+        },
+        "-=.7"
+      )
+      .to(
+        copiedText.current,
+        {
+          opacity: 0,
+        },
+        "+=.2"
+      );
+  }, []);
+
+  return (
+    <section ref={props.reference} className="asection  bg-tertiary p-64">
+      <div className="flex flex-col items-center justify-center h-full w-full">
+        <div className="w-min">
+          <div>
+            <span
+              ref={copiedText}
+              className="font-body text-secondary text-xl float-right font-bold origin-center invisible"
+            >
+              copied!
+            </span>
+          </div>
+          <h1
+            className="font-body text-6xl text-secondary"
+            onClick={() => {
+              gsap.set(copiedText.current, { visibility: "visible" });
+              fallAnimation.current.restart();
+              navigator.clipboard.writeText("fchanghlee@gmail.com");
+            }}
+            onMouseEnter={() => {
+              cursorChangeHandler("hovered");
+              animation.current.play();
+            }}
+            onMouseLeave={() => {
+              cursorChangeHandler("");
+              animation.current.reverse();
+            }}
+          >
+            fchanghlee@gmail.com
+          </h1>
+          <hr ref={line} className="border-2 border-secondary w-1/12" />
+          <div className="flex justify-center mt-14">
+            <a
+              href="https://www.linkedin.com/in/francis-lee-889377191/"
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => cursorChangeHandler("hovered")}
+              onMouseLeave={() => cursorChangeHandler("")}
+            >
+              <img src={linkedin} className=" h-14" alt="linkedin" />
+            </a>
+            <a
+              href="https://github.com/M-Stable"
+              target="_blank"
+              rel="noreferrer"
+              onMouseEnter={() => cursorChangeHandler("hovered")}
+              onMouseLeave={() => cursorChangeHandler("")}
+            >
+              <img src={github} className="ml-7 h-14" alt="github" />
+            </a>
           </div>
         </div>
-
-        <div>
-          <form
-            id="contact-form"
-            // onSubmit={this.handleSubmit.bind(this)}
-            method="POST"
-          >
-            <div className="mb-10">
-              <label htmlFor="name" className="text-secondary font-body">
-                Name
-              </label>
-              <input type="text" className="w-full text-xl font-body" />
-            </div>
-            <div className="mb-10">
-              <label
-                htmlFor="exampleInputEmail1"
-                className="text-secondary font-body"
-              >
-                Email address
-              </label>
-              <input
-                type="email"
-                className="w-full text-xl font-body"
-                aria-describedby="emailHelp"
-              />
-            </div>
-            <div className="mb-10">
-              <label htmlFor="message" className="text-secondary font-body">
-                Message
-              </label>
-              <textarea
-                className="w-full text-xl font-body"
-                rows="5"
-              ></textarea>
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
-        </div>
       </div>
-
-      <hr className="text-primary border-t-4" />
     </section>
   );
 };

@@ -5,7 +5,6 @@ import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
 import { MouseContext } from "../context/mouse-context";
-import Ticker from "react-ticker";
 import logo from "../logo.svg";
 
 const Landing = (props) => {
@@ -97,9 +96,17 @@ const Landing = (props) => {
                   onMouseEnter={() => cursorChangeHandler("hovered")}
                   onMouseLeave={() => cursorChangeHandler("")}
                 >
-                  <span aria-hidden="true">Francis Lee</span>
-                  Francis Lee
-                  <span aria-hidden="true">Francis Lee</span>
+                  <a
+                    href="https://www.linkedin.com/in/francis-lee-889377191/"
+                    target="_blank"
+                    rel="noreferrer"
+                    onMouseEnter={() => cursorChangeHandler("hovered")}
+                    onMouseLeave={() => cursorChangeHandler("")}
+                  >
+                    <span aria-hidden="true">Francis Lee</span>
+                    Francis Lee
+                    <span aria-hidden="true">Francis Lee</span>
+                  </a>
                 </span>
               </span>
             </h1>

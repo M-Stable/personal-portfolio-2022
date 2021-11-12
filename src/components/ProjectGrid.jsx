@@ -12,24 +12,24 @@ const ProjectGrid = ({ project, number }) => {
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const animateIn = gsap.timeline({
-      scrollTrigger: {
-        trigger: projImg.current,
-        toggleActions: "play none none reverse",
-      },
-    });
-    animateIn.fromTo(
-      projImg.current,
-      {
-        opacity: 0,
-      },
-      {
-        opacity: 1,
-        transformOrigin: "0% 100%",
-        ease: "power4",
-        duration: 2,
-      }
-    );
+    // const animateIn = gsap.timeline({
+    //   scrollTrigger: {
+    //     trigger: projImg.current,
+    //     toggleActions: "play none none reverse",
+    //   },
+    // });
+    // animateIn.fromTo(
+    //   projImg.current,
+    //   {
+    //     opacity: 0,
+    //   },
+    //   {
+    //     opacity: 1,
+    //     transformOrigin: "0% 100%",
+    //     ease: "power4",
+    //     duration: 2,
+    //   }
+    // );
 
     // gsap.from(titleLine.current, {
     //   scrollTrigger: {
