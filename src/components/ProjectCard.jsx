@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useContext } from "react";
 import { gsap } from "gsap";
 import github from "../assets/github.svg";
 import { MouseContext } from "../context/mouse-context";
+import Button from "./Button";
 
 const ProjectCard = (props) => {
   const { title, description, githublink, selected, setSelected } = props;
@@ -139,19 +140,11 @@ const ProjectCard = (props) => {
             <hr ref={line} className="text-tertiary border-t-4 w-10" />
           </div>
 
-          <button
-            ref={expandBtn}
-            className="uppercase font-bold font-body text-secondary border-2 py-2 px-5 mt-12 mb-10"
+          <Button
+            reference={expandBtn}
             onClick={() => setSelected(true)}
-            onMouseEnter={(e) => {
-              cursorChangeHandler("hovered");
-            }}
-            onMouseLeave={(e) => {
-              cursorChangeHandler("");
-            }}
-          >
-            interested?
-          </button>
+            text="interested?"
+          />
         </div>
 
         {selected && (
