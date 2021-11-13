@@ -23,6 +23,7 @@ module.exports = {
       },
       height: {
         project: "calc(100vh * 4/5)",
+        contact: "70vh",
       },
       backgroundSize: {
         "120%": "120%",

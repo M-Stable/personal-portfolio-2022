@@ -59,19 +59,22 @@ const Contact = (props) => {
   }, []);
 
   return (
-    <section ref={props.reference} className="asection bg-tertiary p-64">
+    <section
+      ref={props.reference}
+      className="asection h-contact bg-tertiary p-10 sm:p-32"
+    >
       <div className="flex flex-col items-center justify-center h-full w-full">
         <div className="w-min">
           <div>
             <span
               ref={copiedText}
-              className="font-body text-secondary text-xl float-right font-bold origin-center invisible"
+              className="font-body text-secondary text-sm sm:text-xl float-right font-bold origin-center invisible"
             >
               copied!
             </span>
           </div>
           <h1
-            className="font-body text-6xl text-secondary"
+            className="font-body text-2xl sm:text-3xl md:text-5xl lg:text-6xl text-secondary"
             onClick={() => {
               gsap.set(copiedText.current, { visibility: "visible" });
               fallAnimation.current.restart();
@@ -88,8 +91,13 @@ const Contact = (props) => {
           >
             {email}
           </h1>
-          <hr ref={line} className="border-2 border-secondary w-1/12" />
-          <p className="font-body text-secondary opacity-0">click to copy</p>
+          <hr
+            ref={line}
+            className="border-1 sm:border-2 border-secondary w-1/12"
+          />
+          <p className="invisible sm:visible font-body text-secondary opacity-0">
+            click to copy
+          </p>
           <div className="flex justify-center mt-14">
             <a
               href="https://www.linkedin.com/in/francis-lee-889377191/"
@@ -98,7 +106,7 @@ const Contact = (props) => {
               onMouseEnter={() => cursorChangeHandler("hovered")}
               onMouseLeave={() => cursorChangeHandler("")}
             >
-              <img src={linkedin} className=" h-14" alt="linkedin" />
+              <img src={linkedin} className="h-8 md:h-14" alt="linkedin" />
             </a>
             <a
               href="https://github.com/M-Stable"
@@ -107,7 +115,7 @@ const Contact = (props) => {
               onMouseEnter={() => cursorChangeHandler("hovered")}
               onMouseLeave={() => cursorChangeHandler("")}
             >
-              <img src={github} className="ml-7 h-14" alt="github" />
+              <img src={github} className="ml-7 h-8 md:h-14" alt="github" />
             </a>
           </div>
         </div>
