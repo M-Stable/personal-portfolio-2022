@@ -59,7 +59,7 @@ const Contact = (props) => {
   }, []);
 
   return (
-    <section ref={props.reference} className="asection  bg-tertiary p-64">
+    <section ref={props.reference} className="asection bg-tertiary p-64">
       <div className="flex flex-col items-center justify-center h-full w-full">
         <div className="w-min">
           <div>
