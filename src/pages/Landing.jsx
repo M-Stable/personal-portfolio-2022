@@ -53,12 +53,12 @@ const Landing = ({ reference }) => {
   return (
     <section
       ref={reference}
-      className="asection h-full w-full bg-primary px-10 sm:px-32"
+      className="asection h-full w-full bg-primary px-10 md:px-32"
     >
       <img
         ref={logoRef}
         src={logo}
-        className="w-14 md:w-20 absolute top-10 left-10 sm:left-32"
+        className="w-14 md:w-20 absolute top-10 left-10 md:left-32"
         alt="logo"
       />
       {/* <div className="absolute w-1/3 h-full right-0 z-50">

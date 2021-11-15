@@ -7,7 +7,7 @@ const Button = ({ reference, onClick, text }) => {
   return (
     <button
       ref={reference}
-      className="uppercase font-bold font-body text-secondary border-2 py-2 px-5 mt-12 mb-10"
+      className="uppercase font-bold font-body text-secondary text-sm md:text-base border-2 py-2 px-5"
       onClick={onClick}
       onMouseEnter={(e) => {
         cursorChangeHandler("hovered");

@@ -47,7 +47,7 @@ const Projects = (props) => {
   return (
     <div
       ref={props.reference}
-      className={`asection relative bg-primary px-32 py-10`}
+      className={`asection relative bg-primary px-10 md:px-32 py-10`}
     >
       {/* <div className="absolute -top-20 right-0 mr-32">
         <Canvas camera={{ position: [0, 1, 3] }}>
@@ -62,21 +62,16 @@ const Projects = (props) => {
         </h1>
       </div> */}
 
-      <div className="relative mb-24">
+      <div className="relative mb-20 md:mb-24 text-5xl lg:text-6xl font-header text-secondary whitespace-nowrap">
         {Array.from({ length: 5 }).map((_, i) => (
-          <h1
-            key={i}
-            className="absolute projheader text-6xl font-header text-secondary whitespace-nowrap w-min"
-          >
+          <h1 key={i} className="absolute projheader w-min">
             My Work
           </h1>
         ))}
-        <h1 className="absolute text-6xl font-header text-secondary whitespace-nowrap w-min">
-          My Work
-        </h1>
+        <h1 className="absolute w-min">My Work</h1>
       </div>
 
-      <div className="py-10 w-full">
+      <div className="py-2 md:py-10 w-full">
         <div className="flex flex-col w-full items-center">
           {projectInfo.map((project, i) => {
             return <ProjectGrid key={i} number={i} project={project} />;

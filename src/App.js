@@ -68,8 +68,8 @@ function App() {
           projRef={projectRef}
           scrollTo={scrollTo}
         />
-        {/* <Projects reference={projectRef} />
-        <Experience reference={experienceRef} /> */}
+        <Projects reference={projectRef} />
+        {/* <Experience reference={experienceRef} /> */}
         <Contact reference={contactRef} />
       </div>
     </Suspense>

@@ -19,17 +19,19 @@ module.exports = {
     extend: {
       width: {
         "120%": "120%",
-        double: "200%",
+        xlProjDesc: "44rem",
+        lgProjDesc: "28rem",
       },
       height: {
         project: "calc(100vh * 4/5)",
+        projectsm: "calc(100vh * 3/5)",
         contact: "70vh",
       },
       backgroundSize: {
         "120%": "120%",
       },
       backdropBrightness: {
-        card: ".2",
+        card: ".4",
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
@@ -65,5 +67,5 @@ module.exports = {
       backgroundSize: ["hover"],
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

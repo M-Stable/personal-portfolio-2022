@@ -1,4 +1,4 @@
-import React, { useContext, useRef, useEffect, useState } from "react";
+import React, { useContext, useRef, useEffect } from "react";
 import linkedin from "../assets/linkedin.svg";
 import github from "../assets/github.svg";
 import { MouseContext } from "../context/mouse-context";
@@ -61,7 +61,7 @@ const Contact = (props) => {
   return (
     <section
       ref={props.reference}
-      className="asection h-contact bg-tertiary p-10 sm:p-32"
+      className="asection h-contact bg-tertiary p-10 md:p-32"
     >
       <div className="flex flex-col items-center justify-center h-full w-full">
         <div className="w-min">
