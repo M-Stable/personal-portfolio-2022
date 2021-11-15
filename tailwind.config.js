@@ -27,6 +27,9 @@ module.exports = {
         projectsm: "calc(100vh * 3/5)",
         contact: "70vh",
       },
+      inset: {
+        timelineMarker: "-3.25rem",
+      },
       backgroundSize: {
         "120%": "120%",
       },

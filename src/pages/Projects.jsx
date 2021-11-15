@@ -62,7 +62,7 @@ const Projects = (props) => {
         </h1>
       </div> */}
 
-      <div className="relative mb-20 md:mb-24 text-5xl lg:text-6xl font-header text-secondary whitespace-nowrap">
+      <div className="relative mb-20 md:mb-24 text-4xl lg:text-6xl font-header text-secondary whitespace-nowrap">
         {Array.from({ length: 5 }).map((_, i) => (
           <h1 key={i} className="absolute projheader w-min">
             My Work

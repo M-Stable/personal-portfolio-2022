@@ -109,10 +109,10 @@ const ProjectGrid = ({ project, number }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-4/5 h-full filter brightness-50 float-right">
-          <div class="aspect-w-16 aspect-h-9">
-            <ReactPlayer url={video} playing loop width="100%" height="100%" />
-          </div>
+        <div className="w-full lg:w-4/5 h-full filter brightness-50 float-right mb-14">
+          {/* <div class="aspect-w-16 aspect-h-9"> */}
+          <ReactPlayer url={video} playing loop width="100%" height="100%" />
+          {/* </div> */}
         </div>
       </div>
     </div>
