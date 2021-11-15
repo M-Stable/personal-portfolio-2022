@@ -53,7 +53,7 @@ const Landing = ({ reference }) => {
   return (
     <section
       ref={reference}
-      className="asection h-full w-full bg-primary px-10 md:px-32"
+      className="asection h-screen w-full bg-primary px-10 md:px-32"
     >
       <img
         ref={logoRef}
@@ -70,7 +70,7 @@ const Landing = ({ reference }) => {
       </div> */}
       <div className="w-full h-full flex justify-center items-center">
         <section className="w-full ">
-          <div className="font-header xl:text-6xl lg:text-5xl sm:text-3xl text-xl mb-5 ">
+          <div className="font-header xl:text-6xl lg:text-5xl md:text-4xl text-3xl mb-5 ">
             <h1 className="hidetext leading-tight text-tertiary">
               <span>Hello,</span>
             </h1>
