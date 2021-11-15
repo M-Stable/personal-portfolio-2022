@@ -41,12 +41,11 @@ const Header = (props) => {
   }, []);
 
   return (
-    <header className="invisible md:visible header fixed h-full bg-primary py-10 px-3 z-20 grid grid-rows-3 ">
-      <div />
+    <header className="invisible md:visible header fixed h-full bg-primary py-10 px-3 z-20 flex flex-col justify-between ">
       <Menu reference={menuRef} {...props} scrollTo={scrollTo} />
       <h1
         ref={name}
-        className="font-header text-secondary text-2xl wm-vlr transform rotate-180"
+        className="font-header text-secondary text-2xl wm-vlr transform rotate-180 whitespace-nowrap"
         onClick={() => scrollTo(props.landingRef)}
       >
         Francis Lee

@@ -5,77 +5,40 @@ import github from "../assets/github.svg";
 import { MouseContext } from "../context/mouse-context";
 import ReactPlayer from "react-player";
 import video from "../assets/videos/website1.mp4";
+import video1 from "../assets/videos/what-to-eat-demo.mp4";
+import ReactVisibilitySensor from "react-visibility-sensor";
 
 const ProjectGrid = ({ project, number }) => {
-  const [selected, setSelected] = useState(false);
+  const [visible, setVisible] = useState(false);
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
-  const projImg = useRef();
   const projGrid = useRef();
-  const titleLine = useRef();
+  const projCard = useRef();
 
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
-    // const animateIn = gsap.timeline({
-    //   scrollTrigger: {
-    //     trigger: projImg.current,
-    //     toggleActions: "play none none reverse",
-    //   },
-    // });
-    // animateIn.fromTo(
-    //   projImg.current,
-    //   {
-    //     opacity: 0,
-    //   },
-    //   {
-    //     opacity: 1,
-    //     transformOrigin: "0% 100%",
-    //     ease: "power4",
-    //     duration: 2,
-    //   }
-    // );
-
-    // gsap.from(titleLine.current, {
-    //   scrollTrigger: {
-    //     trigger: projImg.current,
-    //     toggleActions: "play none none reset",
-    //   },
-    //   width: 0,
-    //   opacity: 0,
-    //   duration: 1.2,
-    //   ease: "power4",
-    //   delay: 0.5,
-    // });
-
-    // gsap.from(projGrid.current, {
-    //   scrollTrigger: {
-    //     trigger: projGrid.current,
-    //     toggleActions: "play none none reset",
-    //   },
-    //   width: 0,
-    //   opacity: 0,
-    //   duration: 1.2,
-    //   ease: "power4",
-    // });
-  }, []);
+  function onChange(isVisible) {
+    setVisible(isVisible);
+  }
 
   return (
     <div ref={projGrid} className="mb-14 w-full h-auto">
       <div className="w-full lg:mb-20">
         <div className="w-full flex justify-between">
-          <h1 className="font-body uppercase text-sm md:text-xl text-secondary">
+          <h3 className="projHeader font-body uppercase text-sm md:text-xl text-secondary">
             Project
-          </h1>
-          <h1 className="font-body text-xl md:text-3xl text-secondary">
+          </h3>
+          <h3 className="projHeader font-body text-xl md:text-3xl text-secondary">
             <span>{number + 1}</span>
-          </h1>
+          </h3>
         </div>
         <div className="w-full h-1 bg-secondary" />
       </div>
 
       <div className="relative">
         <div className="relative lg:absolute top-0 left-0 lg:my-8 w-full lg:w-xlProjDesc z-10">
-          <div className="lg:backdrop-filter lg:backdrop-brightness-card py-8 lg:px-10">
+          <div
+            ref={projCard}
+            className="projCard lg:backdrop-filter lg:backdrop-brightness-card py-8 lg:px-10"
+          >
             <h1 className="font-header text-3xl lg:text-4xl text-secondary">
               {project.title}
             </h1>
@@ -109,9 +72,18 @@ const ProjectGrid = ({ project, number }) => {
           </div>
         </div>
 
-        <div className="w-full lg:w-4/5 h-full filter brightness-50 float-right mb-14">
+        <div className="projVideo w-full lg:w-4/5 h-full filter brightness-50 float-right mb-14">
           {/* <div class="aspect-w-16 aspect-h-9"> */}
-          <ReactPlayer url={video} playing loop width="100%" height="100%" />
+          <ReactVisibilitySensor partialVisibility onChange={onChange}>
+            <ReactPlayer
+              url={video1}
+              playing={visible}
+              loop
+              muted
+              width="100%"
+              height="100%"
+            />
+          </ReactVisibilitySensor>
           {/* </div> */}
         </div>
       </div>

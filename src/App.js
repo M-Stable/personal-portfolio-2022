@@ -14,21 +14,7 @@ function App() {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    // const sections = gsap.utils.toArray(".asection");
-
-    // sections.forEach((section) => {
-    //   ScrollTrigger.create({
-    //     trigger: section,
-    //     ease: "back",
-    //     start: "top top",
-    //     pin: true,
-    //     scrub: 1,
-    //     pinSpacing: false,
-    //     snap: 1 / (sections.length - 1),
-    //   });
-    // });
-
-    gsap.to("progress", {
+    const animation = gsap.to("progress", {
       value: 100,
       ease: "none",
       scrollTrigger: { scrub: 0.3 },
@@ -36,6 +22,10 @@ function App() {
 
     setUpCursor1(gsap);
     setUpCursor2(gsap);
+
+    return () => {
+      animation.kill();
+    };
   });
 
   const projectRef = useRef();

@@ -1,17 +1,17 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ExperienceSummary from "../components/ExperienceSummary";
 import { experienceInfo } from "./experienceInfo";
 
 const Experience = (props) => {
-  const details = useRef();
-  const expandTween = useRef();
-
   useEffect(() => {
+    gsap.registerPlugin(ScrollTrigger);
     const headers = gsap.utils.toArray(".expheader");
 
     headers.forEach((header, i) => {
-      gsap.from(header, {
+      const tl = gsap.timeline({ onComplete: () => ScrollTrigger.refresh() });
+      tl.from(header, {
         scrollTrigger: {
           trigger: header,
           start: "top center",
@@ -22,14 +22,6 @@ const Experience = (props) => {
         opacity: 1 - ((i + 1) / 100) * 15,
       });
     });
-
-    expandTween.current = gsap
-      .timeline({ paused: true })
-      .from(details.current, {
-        width: 0,
-        duration: 1,
-        ease: "expo",
-      });
   }, []);
 
   return (

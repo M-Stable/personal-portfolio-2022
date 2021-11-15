@@ -8,8 +8,12 @@ const Menu = (props) => {
       ref={props.reference}
       className="flex justify-between w-full font-body text-lg text-secondary wm-vlr transform rotate-180"
     >
-      <li onClick={() => scrollTo(contactRef)}>Contact</li>
-      <li onClick={() => scrollTo(expRef)}>Experience</li>
+      <li className="mb-6" onClick={() => scrollTo(contactRef)}>
+        Contact
+      </li>
+      <li className="mb-6" onClick={() => scrollTo(expRef)}>
+        Experience
+      </li>
       <li onClick={() => scrollTo(projRef)}>Projects</li>
     </ul>
   );

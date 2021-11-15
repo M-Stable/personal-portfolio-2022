@@ -11,9 +11,11 @@ const Projects = (props) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const headers = gsap.utils.toArray(".projheader");
+    const projCards = gsap.utils.toArray(".projCard");
+    const projVideos = gsap.utils.toArray(".projVideo");
 
     headers.forEach((header, i) => {
-      const tl = gsap.timeline();
+      const tl = gsap.timeline({ onComplete: () => ScrollTrigger.refresh() });
 
       const animation = gsap.fromTo(
         header,
@@ -40,6 +42,32 @@ const Projects = (props) => {
           end: "bottom center",
           scrub: true,
         });
+      });
+    });
+
+    projCards.forEach((card) => {
+      gsap.from(card, {
+        scrollTrigger: {
+          trigger: card,
+          toggleActions: "play none none reset",
+        },
+        yPercent: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4",
+      });
+    });
+
+    projVideos.forEach((video) => {
+      gsap.from(video, {
+        scrollTrigger: {
+          trigger: video,
+          toggleActions: "play none none reset",
+        },
+        xPercent: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: "power4",
       });
     });
   }, []);

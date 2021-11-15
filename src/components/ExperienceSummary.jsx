@@ -12,8 +12,7 @@ const ExperienceSummary = ({ exp, order }) => {
       scrollTrigger: {
         trigger: expcard.current,
         scrub: 1,
-        end: "-20% center",
-        markers: true,
+        end: "top 80%",
       },
       yPercent: 100,
     });

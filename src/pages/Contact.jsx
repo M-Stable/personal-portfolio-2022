@@ -56,6 +56,11 @@ const Contact = (props) => {
         },
         "+=.2"
       );
+
+    return () => {
+      fallAnimation.current.kill();
+      animation.current.kill();
+    };
   }, []);
 
   return (
