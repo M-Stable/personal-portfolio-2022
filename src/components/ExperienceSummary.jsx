@@ -28,12 +28,14 @@ const ExperienceSummary = ({ exp, order }) => {
       ref={expcard}
       className={`relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-3/4 row-start-${
         order + 1
-      } xl:col-start-${isEven ? "1" : "2"} xl:${isEven && "justify-self-end"}`}
+      } ${isEven ? "xl:col-start-1" : "xl:col-start-2"} ${
+        isEven && "xl:justify-self-end"
+      }`}
     >
       <div
         className={`absolute invisible xl:visible h-6 w-6 ${
-          isEven ? "right" : "left"
-        }-timelineMarker top-0 rounded-full bg-primary border-4 border-secondary transition-all`}
+          isEven ? "right-timelineMarker" : "left-timelineMarker"
+        } top-0 rounded-full bg-primary border-4 border-secondary transition-all`}
       />
       <h2 className="text-4xl font-header text-primary mb-4 transition-all">
         {exp.name}
