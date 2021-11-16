@@ -5,7 +5,7 @@ import { MouseContext } from "../context/mouse-context";
 import { gsap } from "gsap";
 
 const Contact = (props) => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   const line = useRef();
   const animation = useRef();

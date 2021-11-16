@@ -5,7 +5,7 @@ import { MouseContext } from "../context/mouse-context";
 import logo from "../logo.svg";
 
 const Landing = ({ reference }) => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   const model = useRef();
   const logoRef = useRef();

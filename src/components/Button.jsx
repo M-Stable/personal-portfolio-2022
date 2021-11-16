@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { MouseContext } from "../context/mouse-context";
 
 const Button = ({ reference, onClick, text }) => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   return (
     <button

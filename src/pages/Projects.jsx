@@ -13,7 +13,6 @@ const Projects = (props) => {
     gsap.registerPlugin(ScrollTrigger);
 
     const headers = gsap.utils.toArray(".projheader");
-    const projCards = gsap.utils.toArray(".projCard");
     const projVideos = gsap.utils.toArray(".projVideo");
 
     headers.forEach((header, i) => {

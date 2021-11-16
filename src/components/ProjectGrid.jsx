@@ -10,7 +10,7 @@ import ReactVisibilitySensor from "react-visibility-sensor";
 
 const ProjectGrid = ({ project, number, video }) => {
   const [visible, setVisible] = useState(false);
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorChangeHandler } = useContext(MouseContext);
 
   const projGrid = useRef();
   const projNum1 = useRef();

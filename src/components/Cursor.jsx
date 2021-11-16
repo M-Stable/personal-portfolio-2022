@@ -3,7 +3,7 @@ import "./Cursor.css";
 import { MouseContext } from "../context/mouse-context";
 
 const Cursor = () => {
-  const { cursorType, cursorChangeHandler } = useContext(MouseContext);
+  const { cursorType } = useContext(MouseContext);
 
   return (
     <>
