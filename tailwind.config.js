@@ -21,6 +21,7 @@ module.exports = {
         "120%": "120%",
         xlProjDesc: "44rem",
         lgProjDesc: "28rem",
+        expCard: "30rem",
       },
       height: {
         project: "calc(100vh * 4/5)",

@@ -21,7 +21,7 @@ const ExperienceSummary = ({ exp, order }) => {
         scrub: 1,
         end: "top 80%",
       },
-      yPercent: 100,
+      yPercent: 40,
     });
   }, []);
 
@@ -33,14 +33,14 @@ const ExperienceSummary = ({ exp, order }) => {
     <div
       ref={expcard}
       className={
-        `relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-3/4 ${
+        `relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-expCard ${
           isEven ? "xl:col-start-1" : "xl:col-start-2"
         } ${isEven && "xl:justify-self-end"} ` + rowMap[order + 1]
       }
     >
       <div
         className={`absolute invisible xl:visible h-6 w-6 ${
-          isEven ? "right-timelineMarker" : "left-timelineMarker"
+          isEven ? "xl:right-timelineMarker" : "xl:left-timelineMarker"
         } top-0 rounded-full bg-primary border-4 border-secondary transition-all`}
       />
       <h2 className="text-4xl font-header text-primary mb-4 transition-all">
