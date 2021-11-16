@@ -14,7 +14,7 @@ export const projectInfo = [
     tech: ["Styled Components", "Firebase", "React Native"],
     description:
       "A mobile application that aims to solve a common problem of trying to manage who owes who. Simply log your expense and who was involved, and Go Dutch will take care of the rest.",
-    github: "",
+    github: "https://github.com/M-Stable/GoDutch",
   },
   {
     video: "chancery",
@@ -22,7 +22,6 @@ export const projectInfo = [
     tech: ["Material UI", "Redux", "React"],
     description:
       "A flashcard web application to help prepare students for their investment banking interviews. Worked in the frontend team to translate a design mockup and connect with a real database.",
-    github: "",
     link: "https://chancery.app/",
   },
   {

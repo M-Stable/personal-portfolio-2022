@@ -5,6 +5,10 @@ import { Canvas } from "@react-three/fiber";
 import Model from "../Model";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import whatToEatDemo from "../assets/videos/what-to-eat-demo.mp4";
+import portfolioDemo from "../assets/videos/portfolio-v1-demo.mp4";
+import chanceryDemo from "../assets/videos/chancery-demo.mp4";
+import goDutchDemo from "../assets/videos/go-dutch-demo.mp4";
 
 const Projects = (props) => {
   useEffect(() => {
@@ -59,6 +63,13 @@ const Projects = (props) => {
     });
   }, []);
 
+  const videoMap = {
+    whatToEat: whatToEatDemo,
+    portfolio: portfolioDemo,
+    goDutch: goDutchDemo,
+    chancery: chanceryDemo,
+  };
+
   return (
     <div
       ref={props.reference}
@@ -88,7 +99,14 @@ const Projects = (props) => {
 
       <div className="py-2 md:py-10 flex flex-col w-full">
         {projectInfo.map((project, i) => {
-          return <ProjectGrid key={i} number={i} project={project} />;
+          return (
+            <ProjectGrid
+              key={i}
+              number={i}
+              project={project}
+              video={videoMap[project.video]}
+            />
+          );
         })}
       </div>
     </div>

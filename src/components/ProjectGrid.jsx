@@ -5,12 +5,10 @@ import github from "../assets/github.svg";
 import globe from "../assets/globe.svg";
 import { MouseContext } from "../context/mouse-context";
 import ReactPlayer from "react-player";
-import whatToEatDemo from "../assets/videos/what-to-eat-demo.mp4";
-import portfolioDemo from "../assets/videos/portfolio-v1-demo.mp4";
-import chanceryDemo from "../assets/videos/chancery-demo.mp4";
+
 import ReactVisibilitySensor from "react-visibility-sensor";
 
-const ProjectGrid = ({ project, number }) => {
+const ProjectGrid = ({ project, number, video }) => {
   const [visible, setVisible] = useState(false);
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
@@ -81,13 +79,6 @@ const ProjectGrid = ({ project, number }) => {
     setVisible(isVisible);
   }
 
-  const videoMap = {
-    whatToEat: whatToEatDemo,
-    portfolio: portfolioDemo,
-    goDutch: whatToEatDemo,
-    chancery: chanceryDemo,
-  };
-
   return (
     <div className="flex">
       <div
@@ -110,7 +101,7 @@ const ProjectGrid = ({ project, number }) => {
         <div className="w-full mb-14">
           <ReactVisibilitySensor partialVisibility onChange={onChange}>
             <ReactPlayer
-              url={videoMap[project.video]}
+              url={video}
               playing={visible}
               loop
               muted
