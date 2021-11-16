@@ -1,5 +1,6 @@
 export const projectInfo = [
   {
+    type: "Personal",
     video: "whatToEat",
     title: "What to Eat",
     tech: ["Firebase", "Vue.js"],
@@ -9,6 +10,7 @@ export const projectInfo = [
     link: "https://myeaterylist.netlify.app/",
   },
   {
+    type: "University",
     video: "goDutch",
     title: "Go Dutch",
     tech: ["Styled Components", "Firebase", "React Native"],
@@ -17,6 +19,7 @@ export const projectInfo = [
     github: "https://github.com/M-Stable/GoDutch",
   },
   {
+    type: "Client",
     video: "chancery",
     title: "Chancery",
     tech: ["Material UI", "Redux", "React"],
@@ -25,6 +28,7 @@ export const projectInfo = [
     link: "https://chancery.app/",
   },
   {
+    type: "Personal",
     video: "portfolio",
     title: "Personal Portfolio v1",
     tech: ["Styled Components", "React"],

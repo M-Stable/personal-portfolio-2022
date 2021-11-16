@@ -13,7 +13,6 @@ const ProjectGrid = ({ project, number, video }) => {
   const { cursorType, cursorChangeHandler } = useContext(MouseContext);
 
   const projGrid = useRef();
-  const projNum = useRef();
   const projNum1 = useRef();
   const projNum2 = useRef();
 
@@ -40,16 +39,6 @@ const ProjectGrid = ({ project, number, video }) => {
         opacity: 1,
       }
     );
-
-    // gsap.from(projNum.current, {
-    //   scrollTrigger: {
-    //     trigger: projNum.current,
-    //     toggleActions: "play none none reset",
-    //     scrub: true,
-    //     markers: true,
-    //   },
-    //   y: "-120%",
-    // });
 
     gsap.from(projNum1.current, {
       scrollTrigger: {
@@ -87,11 +76,11 @@ const ProjectGrid = ({ project, number, video }) => {
       >
         <div className="w-full mb-5 lg:mb-10 flex justify-between items-center">
           <h3
-            className={`projHeader font-body uppercase text-sm md:text-xl text-secondary ${
+            className={`projHeader font-body uppercase text-sm md:text-xl text-secondary whitespace-nowrap ${
               isEven && "order-2"
             }`}
           >
-            Project
+            {project.type} Project
           </h3>
           <div
             className={`w-full  h-1 bg-secondary ${!isEven ? "ml-5" : "mr-5"}`}

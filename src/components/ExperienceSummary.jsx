@@ -22,12 +22,12 @@ const ExperienceSummary = ({ exp, order }) => {
   return (
     <div
       ref={expcard}
-      className={`relative mb-24 bg-secondary p-14 flex flex-col items-center w-full lg:w-3/4 row-start-${
+      className={`relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-3/4 row-start-${
         order + 1
-      } lg:col-start-${isEven ? "1" : "2"} lg:${isEven && "justify-self-end"}`}
+      } xl:col-start-${isEven ? "1" : "2"} xl:${isEven && "justify-self-end"}`}
     >
       <div
-        className={`absolute invisible lg:visible h-6 w-6 ${
+        className={`absolute invisible xl:visible h-6 w-6 ${
           isEven ? "right" : "left"
         }-timelineMarker top-0 rounded-full bg-primary border-4 border-secondary transition-all`}
       />
@@ -41,6 +41,11 @@ const ExperienceSummary = ({ exp, order }) => {
         <span>{exp.startDate}</span> - <span>{exp.endDate}</span>
       </p>
       <hr className="text-tertiary border-t-4 w-10 my-5 lg:mb-10" />
+      <ul className="text-center leading-10">
+        {exp.points.map((point) => (
+          <li className="font-body">{point}</li>
+        ))}
+      </ul>
     </div>
   );
 };

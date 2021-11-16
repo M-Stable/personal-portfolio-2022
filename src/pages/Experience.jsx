@@ -3,6 +3,8 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import ExperienceSummary from "../components/ExperienceSummary";
 import { experienceInfo } from "./experienceInfo";
+import Button from "../components/Button";
+import resume from "../assets/Francis_Lee_Resume.pdf";
 
 const Experience = (props) => {
   useEffect(() => {
@@ -27,9 +29,9 @@ const Experience = (props) => {
   return (
     <div
       ref={props.reference}
-      className="asection bg-primary px-10 md:px-32 py-10"
+      className="asection bg-primary px-10 md:px-32 py-10 flex flex-col items-center"
     >
-      <div className="relative mb-24 text-4xl lg:text-6xl font-header text-secondary">
+      <div className="relative mb-14 text-4xl lg:text-6xl font-header text-secondary flex justify-center">
         {Array.from({ length: 5 }).map((_, i) => (
           <h1
             key={i}
@@ -40,8 +42,11 @@ const Experience = (props) => {
         ))}
         <h1 className="whitespace-nowrap w-min">Experience</h1>
       </div>
-      <div className="relative w-full grid grid-cols-1 lg:grid-cols-2 gap-x-20">
-        <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-2 bg-secondary" />
+      <a className="w-min mb-14" href={resume} download="Francis_Lee_Resume">
+        <Button text="Resume" />
+      </a>
+      <div className="relative w-full grid grid-cols-1 xl:grid-cols-2 gap-x-20">
+        <div className="invisible xl:visible absolute left-1/2 transform -translate-x-1/2 h-full w-2 bg-secondary" />
         {experienceInfo.map((exp, i) => (
           <ExperienceSummary key={i} exp={exp} order={i} />
         ))}
