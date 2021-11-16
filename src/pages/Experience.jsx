@@ -45,7 +45,7 @@ const Experience = (props) => {
       <a className="w-min mb-14" href={resume} download="Francis_Lee_Resume">
         <Button text="Resume" />
       </a>
-      <div className="relative w-full grid grid-cols-1 xl:grid-cols-2 gap-x-20">
+      <div className="relative w-full grid grid-cols-1 xl:grid-cols-2 gap-x-20 grid-rows-3">
         <div className="invisible xl:visible absolute left-1/2 transform -translate-x-1/2 h-full w-2 bg-secondary" />
         {experienceInfo.map((exp, i) => (
           <ExperienceSummary key={i} exp={exp} order={i} />
