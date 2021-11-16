@@ -1,9 +1,10 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const ExperienceSummary = ({ exp, order }) => {
   const expcard = useRef();
+  const [isEven, setEven] = useState(false);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -18,7 +19,10 @@ const ExperienceSummary = ({ exp, order }) => {
     });
   }, []);
 
-  const isEven = order % 2 === 0;
+  useEffect(() => {
+    setEven(order % 2 === 0);
+  }, [order]);
+
   return (
     <div
       ref={expcard}
