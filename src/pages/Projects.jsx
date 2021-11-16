@@ -1,8 +1,6 @@
 import React, { useEffect } from "react";
 import { projectInfo } from "./projectInfo";
 import ProjectGrid from "../components/ProjectGrid";
-import { Canvas } from "@react-three/fiber";
-import Model from "../Model";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import whatToEatDemo from "../assets/videos/what-to-eat-demo.mp4";

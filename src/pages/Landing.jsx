@@ -1,6 +1,4 @@
 import React, { useEffect, useRef, useContext } from "react";
-import { Canvas } from "@react-three/fiber";
-import Model from "../Model";
 import "./landing.css";
 import { gsap } from "gsap";
 import { MouseContext } from "../context/mouse-context";
@@ -77,24 +75,15 @@ const Landing = ({ reference }) => {
             <h1 className="hidetext leading-tight text-secondary">
               <span>
                 My name is{" "}
-                <span className="whitespace-nowrap">Francis Lee</span>
-                {/* <span
-                  className="glitch text-secondary"
+                <a
+                  href="https://www.linkedin.com/in/francis-lee-889377191/"
+                  target="_blank"
+                  rel="noreferrer"
                   onMouseEnter={() => cursorChangeHandler("hovered")}
                   onMouseLeave={() => cursorChangeHandler("")}
                 >
-                  <a
-                    href="https://www.linkedin.com/in/francis-lee-889377191/"
-                    target="_blank"
-                    rel="noreferrer"
-                    onMouseEnter={() => cursorChangeHandler("hovered")}
-                    onMouseLeave={() => cursorChangeHandler("")}
-                  >
-                    <span aria-hidden="true">Francis Lee</span>
-                    Francis Lee
-                    <span aria-hidden="true">Francis Lee</span>
-                  </a>
-                </span> */}
+                  <span className="whitespace-nowrap">Francis Lee</span>
+                </a>
               </span>
             </h1>
             <h1 className="hidetext leading-tight text-secondary">
