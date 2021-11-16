@@ -5,7 +5,12 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 const ExperienceSummary = ({ exp, order }) => {
   const expcard = useRef();
   const [isEven, setEven] = useState(false);
-  const [startRow, setStartRow] = useState("");
+
+  const rowMap = {
+    1: "row-start-1",
+    2: "row-start-2",
+    3: "row-start-3",
+  };
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -22,15 +27,16 @@ const ExperienceSummary = ({ exp, order }) => {
 
   useEffect(() => {
     setEven(order % 2 === 0);
-    setStartRow("row-start-" + (order + 1));
   }, [order]);
 
   return (
     <div
       ref={expcard}
-      className={`relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-3/4 ${startRow} ${
-        isEven ? "xl:col-start-1" : "xl:col-start-2"
-      } ${isEven && "xl:justify-self-end"}`}
+      className={
+        `relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-3/4 ${
+          isEven ? "xl:col-start-1" : "xl:col-start-2"
+        } ${isEven && "xl:justify-self-end"} ` + rowMap[order + 1]
+      }
     >
       <div
         className={`absolute invisible xl:visible h-6 w-6 ${
