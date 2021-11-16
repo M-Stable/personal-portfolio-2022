@@ -45,19 +45,6 @@ const Projects = (props) => {
       });
     });
 
-    projCards.forEach((card) => {
-      gsap.from(card, {
-        scrollTrigger: {
-          trigger: card,
-          toggleActions: "play none none reset",
-        },
-        yPercent: 60,
-        opacity: 0,
-        duration: 1.2,
-        ease: "power4",
-      });
-    });
-
     projVideos.forEach((video) => {
       gsap.from(video, {
         scrollTrigger: {
@@ -99,12 +86,10 @@ const Projects = (props) => {
         <h1 className="absolute w-min">My Work</h1>
       </div>
 
-      <div className="py-2 md:py-10 w-full">
-        <div className="flex flex-col w-full items-center">
-          {projectInfo.map((project, i) => {
-            return <ProjectGrid key={i} number={i} project={project} />;
-          })}
-        </div>
+      <div className="py-2 md:py-10 flex flex-col w-full">
+        {projectInfo.map((project, i) => {
+          return <ProjectGrid key={i} number={i} project={project} />;
+        })}
       </div>
     </div>
   );

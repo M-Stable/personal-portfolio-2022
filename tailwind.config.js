@@ -47,6 +47,7 @@ module.exports = {
         header: "Akira",
         body: "Alef, sans-serif",
       },
+      fontSize: { numbering: "13rem", numberingmd: "9rem" },
       flexGrow: {
         0: 0,
         1: 1,
