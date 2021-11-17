@@ -100,23 +100,18 @@ const ProjectGrid = ({ project, number, video }) => {
           </ReactVisibilitySensor>
         </div>
 
-        <div className="relative">
-          <div className="relative lg:my-4 w-full flex justify-between  z-10">
-            <div>
-              <h1 className="font-header text-3xl lg:text-4xl text-secondary">
-                {project.title}
-              </h1>
-              <p className="text-secondary text-base md:text-xl font-body mb-5">
-                {project.tech.join([" // "])}
-              </p>
-              <hr className="text-tertiary border-t-4 w-10 mb-5" />
-            </div>
+        <div>
+          <div className="lg:my-4 w-full flex flex-col md:flex-row justify-between">
+            <h1 className="font-header text-3xl lg:text-4xl text-secondary">
+              {project.title}
+            </h1>
 
-            <div className="flex ml-5">
+            <div className="flex md:ml-5 items-center my-2">
               {project.github && (
                 <a href={project.github} target="_blank" rel="noreferrer">
                   <img
                     src={github}
+                    className="mr-4 h-5 md:h-8 "
                     onMouseEnter={(e) => {
                       cursorChangeHandler("hovered");
                     }}
@@ -128,14 +123,10 @@ const ProjectGrid = ({ project, number, video }) => {
                 </a>
               )}
               {project.link && (
-                <a
-                  className="ml-4"
-                  href={project.link}
-                  target="_blank"
-                  rel="noreferrer"
-                >
+                <a href={project.link} target="_blank" rel="noreferrer">
                   <img
                     src={globe}
+                    className="h-5 md:h-8"
                     onMouseEnter={(e) => {
                       cursorChangeHandler("hovered");
                     }}
@@ -148,11 +139,16 @@ const ProjectGrid = ({ project, number, video }) => {
               )}
             </div>
           </div>
+          <p className="text-secondary text-base md:text-xl font-body mb-5">
+            {project.tech.join([" // "])}
+          </p>
+          <hr className="text-tertiary border-t-4 w-10 mb-5" />
           <p className="font-body text-lg md:text-lg lg:text-2xl text-secondary lg:mb-10">
             {project.description}
           </p>
         </div>
       </div>
+
       <div className="hidden lg:block flex-1">
         <div className="w-full h-full relative flex items-center justify-center">
           <div className="flex text-numberingmd xl:text-numbering font-body text-secondary mb-10">
