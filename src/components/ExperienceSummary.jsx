@@ -33,7 +33,7 @@ const ExperienceSummary = ({ exp, order }) => {
     <div
       ref={expcard}
       className={
-        `relative mb-24 bg-secondary p-14 flex flex-col items-center w-full xl:w-expCard ${
+        `relative mb-24 bg-secondary p-10 lg:p-14 flex flex-col items-center w-full xl:w-expCard ${
           isEven ? "xl:col-start-1" : "xl:col-start-2"
         } ${isEven && "xl:justify-self-end"} ` + rowMap[order + 1]
       }
@@ -43,7 +43,7 @@ const ExperienceSummary = ({ exp, order }) => {
           isEven ? "xl:right-timelineMarker" : "xl:left-timelineMarker"
         } top-0 rounded-full bg-primary border-4 border-secondary transition-all`}
       />
-      <h2 className="text-4xl font-header text-primary mb-4 transition-all">
+      <h2 className="text-3xl lg:text-4xl font-header text-primary mb-4 transition-all">
         {exp.name}
       </h2>
       <p className="font-body text-primary text-3xl mb-2 text-center">

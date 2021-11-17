@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, Suspense } from "react";
 import { projectInfo } from "./projectInfo";
 import ProjectGrid from "../components/ProjectGrid";
 import { gsap } from "gsap";
@@ -7,6 +7,18 @@ import whatToEatDemo from "../assets/videos/what-to-eat-demo.mp4";
 import portfolioDemo from "../assets/videos/portfolio-v1-demo.mp4";
 import chanceryDemo from "../assets/videos/chancery-demo.mp4";
 import goDutchDemo from "../assets/videos/go-dutch-demo.mp4";
+// const whatToEatDemo = React.lazy(() =>
+//   import("../assets/videos/what-to-eat-demo.mp4")
+// );
+// const portfolioDemo = React.lazy(() =>
+//   import("../assets/videos/portfolio-v1-demo.mp4")
+// );
+// const chanceryDemo = React.lazy(() =>
+//   import("../assets/videos/chancery-demo.mp4")
+// );
+// const goDutchDemo = React.lazy(() =>
+//   import("../assets/videos/go-dutch-demo.mp4")
+// );
 
 const Projects = (props) => {
   useEffect(() => {
@@ -93,19 +105,20 @@ const Projects = (props) => {
         ))}
         <h1 className="absolute w-min">My Work</h1>
       </div>
-
-      <div className="py-2 md:py-10 flex flex-col w-full">
-        {projectInfo.map((project, i) => {
-          return (
-            <ProjectGrid
-              key={i}
-              number={i}
-              project={project}
-              video={videoMap[project.video]}
-            />
-          );
-        })}
-      </div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <div className="py-2 md:py-10 flex flex-col w-full">
+          {projectInfo.map((project, i) => {
+            return (
+              <ProjectGrid
+                key={i}
+                number={i}
+                project={project}
+                video={videoMap[project.video]}
+              />
+            );
+          })}
+        </div>
+      </Suspense>
     </div>
   );
 };

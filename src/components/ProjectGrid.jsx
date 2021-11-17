@@ -4,7 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import github from "../assets/github.svg";
 import globe from "../assets/globe.svg";
 import { MouseContext } from "../context/mouse-context";
-import ReactPlayer from "react-player";
+import ReactPlayer from "react-player/lazy";
 
 import ReactVisibilitySensor from "react-visibility-sensor";
 
@@ -96,6 +96,7 @@ const ProjectGrid = ({ project, number, video }) => {
               muted
               width="100%"
               height="100%"
+              fallback={<h1>loading...</h1>}
             />
           </ReactVisibilitySensor>
         </div>
