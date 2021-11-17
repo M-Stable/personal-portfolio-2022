@@ -69,22 +69,25 @@ const Landing = ({ reference }) => {
       <div className="w-full h-full flex justify-center items-center">
         <section className="w-full ">
           <div className="font-header xl:text-6xl lg:text-5xl md:text-4xl text-3xl mb-5 ">
-            <h1 className="hidetext leading-tight text-tertiary">
+            <h1 className="hidetext leading-tight text-secondary">
               <span>Hello,</span>
             </h1>
-            <h1 className="hidetext leading-tight text-secondary">
-              <span>
-                My name is{" "}
-                <a
-                  href="https://www.linkedin.com/in/francis-lee-889377191/"
-                  target="_blank"
-                  rel="noreferrer"
-                  onMouseEnter={() => cursorChangeHandler("hovered")}
-                  onMouseLeave={() => cursorChangeHandler("")}
+            <h1 className="hidetext leading-tight text-secondary ">
+              My name is{" "}
+              <a
+                href="https://www.linkedin.com/in/francis-lee-889377191/"
+                target="_blank"
+                rel="noreferrer"
+                onMouseEnter={() => cursorChangeHandler("hovered")}
+                onMouseLeave={() => cursorChangeHandler("")}
+              >
+                <div
+                  title="Francis Lee"
+                  className="myname text-tertiary inline-block"
                 >
-                  <span className="whitespace-nowrap">Francis Lee</span>
-                </a>
-              </span>
+                  <span className="myname whitespace-nowrap ">Francis Lee</span>
+                </div>
+              </a>
             </h1>
             <h1 className="hidetext leading-tight text-secondary">
               <span>Nice to meet you</span>
